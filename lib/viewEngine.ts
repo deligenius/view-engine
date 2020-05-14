@@ -2,7 +2,7 @@ import { Context } from "https://deno.land/x/oak/mod.ts";
 import denjucks from "https://deno.land/x/denjucks/mod.js";
 
 
-function renderDenjuck(viewOption: View, filename: string, data: object) {
+function renderDenjuck(viewOption: View, filename: string, data: object = {}) {
   const file = Deno.readTextFileSync(`${viewOption.view_root}/${filename}.${viewOption.view_ext}`)
   return denjucks.renderString(file, data)
 }
@@ -29,7 +29,7 @@ export function viewEngine(viewOption: View = <View>{}) {
       view_root: viewOption.view_root || Deno.cwd()
     }
 
-    ctx.render = function (fileName: string, data: object) {
+    ctx.render = function (fileName: string, data?: object) {
       const html = renderDenjuck(ctx.view, fileName, data)
       ctx.response.body = html
       ctx.response.headers.set("Content-Type", "text/html; charset=utf-8")
