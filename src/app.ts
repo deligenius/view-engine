@@ -3,10 +3,12 @@ import { viewEngine } from "https://raw.githubusercontent.com/gjuoun/oak-view-en
 
 const app = new Application();
 
-app.use(viewEngine())
+app.use(viewEngine({
+  view_root: './static',
+  view_ext: 'html'
+}))
 
 app.use((ctx) => {
-  console.log(ctx.view)
   ctx.render('index', { txt: "good day" })
 });
 
