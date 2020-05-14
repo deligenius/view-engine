@@ -7,7 +7,7 @@
 
 ### Usage
 
-- ### Render ./index.html
+- #### Render ./index.html
 
 ```html
 <-- index.html -->
@@ -34,7 +34,7 @@ await app.listen({ port: 8000 });
 
 ---
 
-- ### Render ./static/index.html
+- #### Render ./static/index.html
 
 ```ts
 // app.ts
@@ -53,7 +53,7 @@ app.use((ctx) => {
 
 ---
 
-- ### Render by file name only(ignore file extension)
+- #### Render by file name only(ignore file extension)
 ```ts
 // app.ts
 ...
@@ -70,7 +70,7 @@ app.use((ctx) => {
 ...
 ```
 
-- ### Use with **ctx.state**
+- #### Use with **ctx.state**
 
 ```ts
 // app.ts
