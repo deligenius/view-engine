@@ -1,12 +1,13 @@
 import { Application } from "https://deno.land/x/oak/mod.ts";
-import { viewEngine } from "./viewEngine.ts";
+import { viewEngine } from "https://raw.githubusercontent.com/gjuoun/oak-view-engine/master/mod.ts";
 
 const app = new Application();
 
 app.use(viewEngine())
 
 app.use((ctx) => {
-  ctx.render('index.html', { title: "good day" })
+  console.log(ctx.view)
+  ctx.render('index', { txt: "good day" })
 });
 
 await app.listen({ port: 8000 });

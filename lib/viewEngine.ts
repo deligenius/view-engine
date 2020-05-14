@@ -24,7 +24,7 @@ interface View {
 export function viewEngine(viewOption: View = <View>{}) {
   return async function (ctx: Context, next: Function) {
     ctx.view = {
-      view_ext: viewOption.view_ext || "html",
+      view_ext: viewOption.view_ext || "",
       view_engine: viewOption.view_engine || "html",
       view_root: viewOption.view_root || Deno.cwd()
     }
