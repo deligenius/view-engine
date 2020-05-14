@@ -6,7 +6,7 @@
 - Template Language reference: [Nunjucks](https://mozilla.github.io/nunjucks/)
 
 ### Usage
-```ts
+```js
 > deno run --allow-net --allow-read <Your Program>
 ```
   
