@@ -38,10 +38,7 @@ await app.listen({ port: 8000 });
 
 ```ts
 // app.ts
-import { Application } from "https://deno.land/x/oak/mod.ts";
-import { viewEngine } from "https://raw.githubusercontent.com/gjuoun/oak-view-engine/master/mod.ts";
-
-const app = new Application();
+...
 
 app.use(viewEngine({
   view_root: './static'
@@ -51,17 +48,15 @@ app.use((ctx) => {
   ctx.render('index.html', { txt: "good day" })
 });
 
-await app.listen({ port: 8000 });
+...
 ```
 
 ---
+
 - ### Render by file name only(ignore file extension)
 ```ts
 // app.ts
-import { Application } from "https://deno.land/x/oak/mod.ts";
-import { viewEngine } from "https://raw.githubusercontent.com/gjuoun/oak-view-engine/master/mod.ts";
-
-const app = new Application();
+...
 
 app.use(viewEngine({
   view_root: './static',
@@ -72,7 +67,28 @@ app.use((ctx) => {
   ctx.render('index', { txt: "good day" })
 });
 
-await app.listen({ port: 8000 });
+...
+```
+
+- ### Use with **ctx.state**
+
+```ts
+// app.ts
+...
+
+app.use((ctx) => {
+  ctx.state.user = {name: 'John'}
+  ctx.render('index', { txt: "good day" })
+});
+
+...
+```
+
+```html
+<body>
+  user : {{ctx.state.user.name}} <--John-->
+  hello {{ txt }}  <--good day-->
+</body>
 ```
 
 ### Roadmap 

@@ -30,9 +30,18 @@ export function viewEngine(viewOption: View = <View>{}) {
     }
 
     ctx.render = function (fileName: string, data?: object) {
-      const html = renderDenjuck(ctx.view, fileName, data)
-      ctx.response.body = html
-      ctx.response.headers.set("Content-Type", "text/html; charset=utf-8")
+      try {
+        ctx.response.body = renderDenjuck(
+          ctx.view,
+          fileName,
+          {
+            ctx: { state: ctx.state },
+            ...data,
+          })
+        ctx.response.headers.set("Content-Type", "text/html; charset=utf-8")
+      } catch (e) {
+        ctx.response.status = 404
+      }
     }
 
     next()
