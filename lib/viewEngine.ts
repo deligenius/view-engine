@@ -44,7 +44,7 @@ export function viewEngine(viewOption: View = <View>{}) {
       }
     }
 
-    next()
+    await next()
   }
 }
 

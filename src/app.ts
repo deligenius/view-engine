@@ -1,22 +1,23 @@
-import { Application } from "https://deno.land/x/oak/mod.ts";
-// import { viewEngine } from "https://raw.githubusercontent.com/gjuoun/oak-view-engine/master/mod.ts";
+// app.ts
+import { Application, Context } from "https://deno.land/x/oak/mod.ts";
 import { viewEngine } from "../mod.ts";
-
 const app = new Application();
 
-app.use(viewEngine())
 
-// app.use(async (ctx, next) => {
-//   try {
-//     await next();
-//   } catch (err) {
-//     ctx.response.status = err.status
-//   }
-// });
+app.use(viewEngine());
 
-app.use((ctx) => {
-  ctx.state.user = {name: 'John'}
-  ctx.render('index.html', { txt: "good day" })
+
+
+app.use(async (ctx, next) => {
+
+  const response = await fetch(`https://jsonplaceholder.typicode.com/posts/1`)
+  .then((res) => res.json())
+
+  // ctx.response.body = response
+  // ctx.render('index.html', { response: [{ title: "haha" }] })
+  console.log(response)
+  ctx.render('index.html', { response })
+  // next()
 });
 
 await app.listen({ port: 8000 });

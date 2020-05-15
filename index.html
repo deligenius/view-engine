@@ -1,4 +1,5 @@
 <body>
-  user : {{ctx.state.user.name}}
-  hello {{ txt }}
+  {% if response %}
+  <h1>{{response.title}}</h1>
+  {% endif %}
 </body>
