@@ -1,19 +1,20 @@
+import { Engine } from "./types/index.ts";
 
-class Engine {
+class EngineFactory {
   constructor() {}
 
   // dynamic import at runtime
-  async getDenjuckEngine() {
+  async getDenjuckEngine(): Promise<Engine> {
     return (await import("./engines/denjuck.ts")).renderDenjuck;
   }
 
-  async getEjsEngine() {
+  async getEjsEngine(): Promise<Engine> {
     return (await import("./engines/ejs.ts")).renderEjs;
   }
 
-  async getHandlebarsEngine() {
+  async getHandlebarsEngine(): Promise<Engine> {
     return (await import("./engines/handlebars.ts")).renderHandlebars;
   }
 }
 
-export const engineFactory = new Engine();
+export const engineFactory = new EngineFactory();

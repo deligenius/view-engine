@@ -8,11 +8,19 @@ const oakAdapter = await adapterFactory.getOakAdapter();
 const app = new Application();
 
 app.use(
-  viewEngine(oakAdapter, handlebarsEngine, { view_root: "./view" })
+  viewEngine(
+    oakAdapter,
+    handlebarsEngine,
+    { view_root: "./view", use_cache: false },
+  ),
 );
 
 app.use(async (ctx, next) => {
-  ctx.render("index.html", { data: { name: "jun" } });
+  if (ctx.request.url.pathname === "/") {
+    ctx.render("index.html", { data: { name: "jun" } });
+  } else {
+    ctx.render("test.html", { data: { name: "jun" } });
+  }
 });
 
 await app.listen({ port: 8000 });

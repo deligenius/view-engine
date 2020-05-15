@@ -1,24 +1,18 @@
-export interface ViewConfig {
-  view_root: string;
-  view_engine?: string;
-  view_ext?: string;
-}
-
-export type Adapter = (
-  renderEngine: Engine,
-  config: ViewConfig,
-) => void;
-
-export type Engine = (template: string, data: object) => string;
+import { Adapter, Engine, ViewConfig } from "./types/index.ts";
 
 export function viewEngine(
-  adapter: any,
-  engine: any,
+  adapter: Adapter,
+  engine: Engine,
   config: ViewConfig = <ViewConfig> {},
-) {
-  return adapter(engine, config);
+): any {
+  if (config.use_cache) {
+    config.cache = new Map();
+  }
+
+  try {
+    config.view_engine = engine;
+    return adapter(engine, config);
+  } catch (e) {
+    throw new Error("View-Engine: Wrong Engine or View type");
+  }
 }
-
-
-
-
