@@ -1,5 +1,3 @@
-import { oakAdapter } from "./adapters/oak.ts";
-
 export interface ViewConfig {
   view_root: string;
   view_engine?: string;
@@ -19,7 +17,6 @@ export function viewEngine(
   config: ViewConfig = <ViewConfig> {},
 ) {
   return adapter(engine, config);
-  // return oakAdapter(engine, config)
 }
 
 

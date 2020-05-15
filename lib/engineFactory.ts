@@ -1,20 +1,18 @@
-import { renderEjs } from "./engines/ejs.ts";
-import { renderHandlebars } from "./engines/handlebars.ts";
 
 class Engine {
   constructor() {}
 
-  getDenjuckEngine() {
-    import { renderDenjuck } from "./engines/denjuck.ts";
-    return renderDenjuck;
+  // dynamic import at runtime
+  async getDenjuckEngine() {
+    return (await import("./engines/denjuck.ts")).renderDenjuck;
   }
 
-  getEjsEngine() {
-    return renderEjs;
+  async getEjsEngine() {
+    return (await import("./engines/ejs.ts")).renderEjs;
   }
 
-  getHandlebarsEngine() {
-    return renderHandlebars;
+  async getHandlebarsEngine() {
+    return (await import("./engines/handlebars.ts")).renderHandlebars;
   }
 }
 

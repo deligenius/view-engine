@@ -1,8 +1,8 @@
-import { oakAdapter } from "./adapters/oak.ts";
-
 class Adapter {
-  getOakAdapter() {
-    return oakAdapter;
+
+  // dynamic import at runtime
+  async getOakAdapter() {
+    return (await import("./adapters/oak.ts")).oakAdapter;
   }
 }
 

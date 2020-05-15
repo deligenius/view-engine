@@ -1,10 +1,9 @@
 // app.ts
-import { Application, Context } from "https://deno.land/x/oak/mod.ts";
+import { Application } from "https://deno.land/x/oak/mod.ts";
 import { viewEngine, engineFactory, adapterFactory } from "../mod.ts";
 
-// const handlebarsEngine = engineFactory.getHandlebarsEngine();
-const handlebarsEngine = engineFactory.getDenjuckEngine();
-const oakAdapter = adapterFactory.getOakAdapter();
+const handlebarsEngine = await engineFactory.getDenjuckEngine();
+const oakAdapter = await adapterFactory.getOakAdapter();
 
 const app = new Application();
 
