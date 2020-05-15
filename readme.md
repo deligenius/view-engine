@@ -2,14 +2,22 @@
 
 > A View Engine middleware for oka framework
 
-- Current support [Denjucks](https://github.com/denjucks/denjucks)
+- Current support [Denjucks](https://github.com/denjucks/denjucks) and [Ejs](https://github.com/mde/ejs)
 - Template Language reference: [Nunjucks](https://mozilla.github.io/nunjucks/)
 
+As simple as examples : 
+
+1. [Denjucks](#Denjucks/Nunjucks-examples) (default engine)
+2. [Ejs](#Ejs-Examples)
+
 ### Usage
+> remember to give ```--allow-read``` permission
 ```js
 > deno run --allow-net --allow-read <Your Program>
 ```
-  
+---
+### Denjucks/Nunjucks examples
+
 - #### Render ./index.html
 
 ```html
@@ -35,7 +43,7 @@ app.use((ctx) => {
 await app.listen({ port: 8000 });
 ```
 
----
+
 
 - #### Render ./static/index.html
 
@@ -54,9 +62,9 @@ app.use((ctx) => {
 ...
 ```
 
----
 
 - #### Render by file name only(ignore file extension)
+
 ```ts
 // app.ts
 ...
@@ -73,7 +81,7 @@ app.use((ctx) => {
 ...
 ```
 
-- #### Use with **ctx.state**
+- #### Use with ```ctx.state```
 
 ```ts
 // app.ts
@@ -89,11 +97,47 @@ app.use((ctx) => {
 
 ```html
 <body>
-  user : {{ctx.state.user.name}} <--John-->
-  hello {{ txt }}  <--good day-->
+  user : {{ctx.state.user.name}} <--John--> 
+  hello {{ txt }} <--good day-->
 </body>
 ```
 
-### Roadmap 
+### Ejs Examples
+```html
+<--./view/index.ejs-->
+<body>
+  Hobbies of <%=data.name%> are:<br />
+
+  <ul>
+    <% data.hobbies.forEach((item)=>{ %>
+    <li><%=item%></li>
+    <% }); %>
+  </ul>
+</body>
+
+```
+
+```ts
+//app.js
+...
+app.use(
+  viewEngine({
+    view_root: "./view",
+    view_engine: "ejs",
+  })
+);
+
+app.use(async (ctx, next) => {
+  const data = {
+    name: "Akashdeep",
+    hobbies: ["playing football", "playing chess", "cycling"],
+  };
+  ctx.render("index.ejs", { data });
+...
+});
+```
+
+### Roadmap
+
 - [x] Support [denjucks](https://github.com/denjucks/denjucks)
-- [ ] Support [ejs]()
+- [x] Support [ejs](https://github.com/mde/ejs)

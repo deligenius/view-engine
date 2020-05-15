@@ -5,10 +5,9 @@ const app = new Application();
 
 
 app.use(viewEngine({
-  view_root: './',
+  view_root: './view',
   view_engine: 'ejs',
 }));
-
 
 
 app.use(async (ctx, next) => {
