@@ -147,3 +147,5 @@ app.use(async (ctx, next) => {
 
 - [x] Support [denjucks](https://github.com/denjucks/denjucks)
 - [x] Support [ejs](https://github.com/mde/ejs)
+- [ ] Support [Handlebars](https://github.com/handlebars-lang/handlebars.js)
+- [ ] Pre-render/cache strategy
