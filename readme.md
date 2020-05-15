@@ -83,6 +83,13 @@ app.use((ctx) => {
 
 - #### Use with `ctx.state`
 
+```html
+<body>
+  user : {{ctx.state.user.name}} <--John--> 
+  hello {{ txt }} <--good day-->
+</body>
+```
+
 ```ts
 // app.ts
 ...
@@ -95,11 +102,7 @@ app.use((ctx) => {
 ...
 ```
 
-```html
-<body>
-  user : {{ctx.state.user.name}} <--John--> hello {{ txt }} <--good day-->
-</body>
-```
+
 
 ---
 
