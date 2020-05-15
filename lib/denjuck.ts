@@ -6,3 +6,5 @@ export function renderDenjuck(viewOption: ViewConfig, filename: string, data: ob
   const file = Deno.readTextFileSync(`${viewOption.view_root}/${filename}.${viewOption.view_ext}`)
   return denjucks.renderString(file, data)
 }
+
+//
