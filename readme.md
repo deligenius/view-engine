@@ -3,16 +3,20 @@
 > A View Engine middleware for [oka framework](https://github.com/oakserver/oak)
 
 - Current support [Denjucks](https://github.com/denjucks/denjucks) and [Ejs](https://github.com/mde/ejs)
-- As simple as examples : 
+- As simple as examples :
   1. [Denjucks examples](#Denjucks/Nunjucks-examples) (default engine)
-  2. [Ejs examples](#Ejs-Examples) 
+  2. [Ejs examples](#Ejs-Examples)
 
 ### Usage
-> remember to give ```--allow-read``` permission
+
+> remember to give `--allow-read` permission
+
 ```js
 > deno run --allow-net --allow-read <Your Program>
 ```
+
 ---
+
 ### Denjucks/Nunjucks examples
 
 > Read more about [Nunjucks language](https://mozilla.github.io/nunjucks/)
@@ -42,8 +46,6 @@ app.use((ctx) => {
 await app.listen({ port: 8000 });
 ```
 
-
-
 - #### Render ./static/index.html
 
 ```ts
@@ -60,7 +62,6 @@ app.use((ctx) => {
 
 ...
 ```
-
 
 - #### Render by file name only(ignore file extension)
 
@@ -80,7 +81,7 @@ app.use((ctx) => {
 ...
 ```
 
-- #### Use with ```ctx.state```
+- #### Use with `ctx.state`
 
 ```ts
 // app.ts
@@ -96,14 +97,16 @@ app.use((ctx) => {
 
 ```html
 <body>
-  user : {{ctx.state.user.name}} <--John--> 
-  hello {{ txt }} <--good day-->
+  user : {{ctx.state.user.name}} <--John--> hello {{ txt }} <--good day-->
 </body>
 ```
+
 ---
 
 ### Ejs Examples
+
 > Read more about [Ejs syntax](https://ejs.co/)
+
 ```html
 <--./view/index.ejs-->
 <body>
@@ -115,7 +118,6 @@ app.use((ctx) => {
     <% }); %>
   </ul>
 </body>
-
 ```
 
 ```ts
@@ -134,8 +136,8 @@ app.use(async (ctx, next) => {
     hobbies: ["playing football", "playing chess", "cycling"],
   };
   ctx.render("index.ejs", { data });
-...
 });
+...
 ```
 
 ### Roadmap
