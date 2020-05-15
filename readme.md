@@ -3,12 +3,9 @@
 > A View Engine middleware for [oka framework](https://github.com/oakserver/oak)
 
 - Current support [Denjucks](https://github.com/denjucks/denjucks) and [Ejs](https://github.com/mde/ejs)
-- Template Language reference: [Nunjucks](https://mozilla.github.io/nunjucks/)
-
-As simple as examples : 
-
-1. [Denjucks](#Denjucks/Nunjucks-examples) (default engine)
-2. [Ejs](#Ejs-Examples)
+- As simple as examples : 
+  1. [Denjucks examples](#Denjucks/Nunjucks-examples) (default engine)
+  2. [Ejs examples](#Ejs-Examples) 
 
 ### Usage
 > remember to give ```--allow-read``` permission
@@ -17,6 +14,8 @@ As simple as examples :
 ```
 ---
 ### Denjucks/Nunjucks examples
+
+> Read more about [Nunjucks language](https://mozilla.github.io/nunjucks/)
 
 - #### Render ./index.html
 
@@ -101,8 +100,10 @@ app.use((ctx) => {
   hello {{ txt }} <--good day-->
 </body>
 ```
+---
 
 ### Ejs Examples
+> Read more about [Ejs syntax](https://ejs.co/)
 ```html
 <--./view/index.ejs-->
 <body>
