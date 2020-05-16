@@ -21,9 +21,9 @@
 ### Table of Contents
 * [Usage](#Usage)
 
-  * [🎛Adapter](#🎛Adapter)
-  * [🚀Engine](#🚀Engine)
-  * [⚙ViewConfig](⚙ViewConfig)
+  * [🎛Adapter](#adapter)
+  * [🚀Engine](#engine)
+  * [⚙ViewConfig](viewconfig)
 
 * [Examples](#Examples)
   
