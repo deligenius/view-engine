@@ -63,15 +63,15 @@ import {
   adapterFactory,
 } from "https://raw.githubusercontent.com/gjuoun/view-engine/master/mod.ts";
 
-const handlebarsEngine = await engineFactory.getEjsEngine();
+const ejsEngine = await engineFactory.getEjsEngine();
 const oakAdapter = await adapterFactory.getOakAdapter();
 
 const app = new Application();
 
-app.use(viewEngine(oakAdapter, handlebarsEngine));
+app.use(viewEngine(oakAdapter, ejsEngine));
 
 app.use(async (ctx, next) => {
-  ctx.render("index.ejs", { data: { name: "John" } });
+  ctx.render("./view/index.ejs", { data: { name: "John" } });
 });
 
 await app.listen({ port: 8000 });
