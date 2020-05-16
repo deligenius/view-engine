@@ -27,7 +27,7 @@
 
 * [Examples](#Examples)
   
-    * [Use Oak to render Ejs template at ./index.ejs](#use-oak-to-render-ejs-template-at-indexejs)
+  * [Use Oak to render Ejs template at ./index.ejs](#use-oak-to-render-ejs-template-at-indexejs)
   * [Oak render Handlebars template at ./view/index.handlebars](#oak-render-handlebars-template-at-viewindexhandlebars)
   * [Asychronous fetching remote template](#asychronous-fetching-remote-template-viewconfigusecache--true-is-recommended)
 
@@ -74,6 +74,39 @@ const viewConfig: ViewConfig = {
 ---
 
 ### Examples
+
+#### Use [Oak](https://github.com/oakserver/oak) to render [Denjucks template](https://github.com/denjucks/denjucks) at ```./index.html```
+```html
+<--index.html-->
+<body>
+  <h1>{{data.name}}</h1>
+</body>
+```
+
+```ts
+// app.ts
+import { Application } from "https://deno.land/x/oak/mod.ts";
+import {
+  viewEngine,
+  engineFactory,
+  adapterFactory,
+} from "https://raw.githubusercontent.com/gjuoun/view-engine/master/mod.ts";
+
+const denjuckEngine = await engineFactory.getDenjuckEngine();
+const oakAdapter = await adapterFactory.getOakAdapter();
+
+const app = new Application();
+
+app.use(
+  viewEngine(oakAdapter,denjuckEngine)
+);
+
+app.use(async (ctx, next) => {
+  ctx.render("index.html", { data: { name: "John" } });
+});
+
+await app.listen({ port: 8000 });
+```
 
 #### Use [Oak](https://github.com/oakserver/oak) to render [Ejs template](https://ejs.co/) at ```./index.ejs```
 
