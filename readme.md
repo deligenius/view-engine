@@ -60,7 +60,7 @@ To get a Engine, use `engineFactory.get[EngineName]`
 ```ts
 const ejsEngine = await engineFactory.getEjsEngine();
 const handlebarsEngine = await engineFactory.getHandlebarsEngine();
-const getDenjuckEngine = await engineFactory.getDenjuckEngine();
+const denjuckEngine = await engineFactory.getDenjuckEngine();
 ```
 
 #### ⚙ViewConfig 
