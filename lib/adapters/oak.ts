@@ -1,4 +1,3 @@
-import { join } from "https://deno.land/std@0.51.0/path/mod.ts";
 import { Context } from "https://deno.land/x/oak/mod.ts";
 import { Adapter, ViewConfig, Engine } from "../types/index.ts";
 import { getTemplate } from "../utils/utils.ts";
@@ -33,7 +32,7 @@ export const oakAdapter: Adapter = (
         if (view.useCache && view.cache?.has(fileName)) {
           template = view.cache.get(fileName)!;
         } else {
-          const filePath = join(view.viewRoot!, fileName + view.viewExt);
+          const filePath = view.viewRoot + fileName + view.viewExt;
           template = await getTemplate(filePath);
         }
 
