@@ -13,6 +13,22 @@
 - Template **Caching**🔥
 - **Dynamic module import**, uses `await` to load adapters and engines🌈
 
+### Table of Contents
+* [Usage](#Usage)
+
+  * [🎛Adapter](#🎛Adapter)
+  * [🚀Engine](#🚀Engine)
+  * [⚙ViewConfig](⚙ViewConfig)
+
+* [Examples](#Examples)
+  
+    * [Use Oak to render Ejs template at ./index.ejs](#Use-Oak-to-render-Ejs-template-at-./index.ejs)
+  * [Oak render Handlebars template at ./view/index.handlebars](#Oak-render-Handlebars-template-at-./view/index.handlebars)
+  * [Asychronous fetching remote template](Asychronous-fetching-remote-template,-viewConfig.useCache-=-true-is-recommended)
+
+* [Use standlone handlebar engine](#Use-standlone-handlebar-engine)
+
+---
 ### Usage
 
 ```ts
@@ -53,8 +69,8 @@ const viewConfig: ViewConfig = {
 ---
 
 ### Examples
-> 
-- Use [Oak](https://github.com/oakserver/oak) to render [Ejs template](https://ejs.co/) at ```./index.ejs```
+
+#### Use [Oak](https://github.com/oakserver/oak) to render [Ejs template](https://ejs.co/) at ```./index.ejs```
 
 ```ts
 // app.ts
@@ -79,7 +95,7 @@ app.use(async (ctx, next) => {
 await app.listen({ port: 8000 });
 ```
 
-- [Oak](https://github.com/oakserver/oak) render [Handlebars template](https://handlebarsjs.com/) at ```./view/index.handlebars```
+#### [Oak](https://github.com/oakserver/oak) render [Handlebars template](https://handlebarsjs.com/) at ```./view/index.handlebars```
 
 ```ts
 // app.ts
@@ -108,7 +124,7 @@ app.use(async (ctx, next) => {
 await app.listen({ port: 8000 });
 ```
 
-* Asychronous fetching remote template, ```viewConfig.useCache = true``` is recommended
+#### Asychronous fetching remote template, ```viewConfig.useCache = true``` is recommended
 ```ts
 // app.ts
 import { Application } from "https://deno.land/x/oak/mod.ts";
