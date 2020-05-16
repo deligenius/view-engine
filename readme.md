@@ -50,7 +50,7 @@ const viewConfig: ViewConfig = {
 ```
 
 ### Examples
-
+> 
 - Use [Oak](https://github.com/oakserver/oak) to render [Ejs template](https://ejs.co/) at ```./index.ejs```
 
 ```ts
@@ -133,6 +133,26 @@ app.use(async (ctx, next) => {
 await app.listen({ port: 8000 });
 ```
 
+* Use standlone handlebar engine
+```ts
+// app.ts
+import {engineFactory } from "https://raw.githubusercontent.com/gjuoun/view-engine/master/mod.ts";
+
+const handlebarsEngine = await engineFactory.getHandlebarsEngine();
+
+const template = `
+<body>
+  My name is {{data.name}}
+</body>`
+
+const rendered = handlebarsEngine(template, {data: {name: "John"}})
+console.log(rendered)
+/*
+<body>
+  My name is John
+</body>
+ */
+```
 ### Roadmap
 
 - [x] Support [denjucks](https://github.com/denjucks/denjucks)
