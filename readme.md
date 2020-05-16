@@ -22,7 +22,7 @@ viewEngine(
 )
 ```
 
-#### Adapter
+#### 🎛Adapter
 
 To get a Adapter, use `adapterFactory.get[AdapterName]`
 
@@ -30,7 +30,7 @@ To get a Adapter, use `adapterFactory.get[AdapterName]`
 const oakAdapter = await adapterFactory.getOakAdapter();
 ```
 
-#### Engine
+#### 🚀Engine
 
 To get a engine, use `engineFactory.get[EngineName]`
 
@@ -40,7 +40,7 @@ const handlebarsEngine = await engineFactory.getHandlebarsEngine();
 const getDenjuckEngine = await engineFactory.getDenjuckEngine();
 ```
 
-#### ViewConfig
+#### ⚙ViewConfig
 
 ```ts
 const viewConfig: ViewConfig = {
