@@ -47,7 +47,7 @@ viewEngine(
 
 #### 🎛Adapter
 
-To get a Adapter, use `adapterFactory.get[AdapterName]`
+To get an Adapter, use `adapterFactory.get[AdapterName]`
 
 ```ts
 const oakAdapter = await adapterFactory.getOakAdapter();
@@ -55,7 +55,7 @@ const oakAdapter = await adapterFactory.getOakAdapter();
 
 #### 🚀Engine
 
-To get a engine, use `engineFactory.get[EngineName]`
+To get a Engine, use `engineFactory.get[EngineName]`
 
 ```ts
 const ejsEngine = await engineFactory.getEjsEngine();
