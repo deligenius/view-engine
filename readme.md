@@ -76,7 +76,7 @@ const viewConfig: ViewConfig = {
 
 ### Examples
 
-#### Use [Oak](https://github.com/oakserver/oak) to render [Denjucks template](https://github.com/denjucks/denjucks) at ```./index.html```
+#### Use [Oak](https://github.com/oakserver/oak) to render [Denjucks template](https://github.com/denjucks/denjucks) at ```./index.html``` [![Foo](/docs/arrows.png)](#table-of-contents)
 ```html
 <--index.html-->
 <body>
@@ -109,7 +109,7 @@ app.use(async (ctx, next) => {
 await app.listen({ port: 8000 });
 ```
 
-#### Use [Oak](https://github.com/oakserver/oak) to render [Ejs template](https://ejs.co/) at ```./index.ejs```
+#### Use [Oak](https://github.com/oakserver/oak) to render [Ejs template](https://ejs.co/) at ```./index.ejs``` [![Foo](/docs/arrows.png)](#table-of-contents)
 
 ```ts
 // app.ts
@@ -134,7 +134,7 @@ app.use(async (ctx, next) => {
 await app.listen({ port: 8000 });
 ```
 
-#### [Oak](https://github.com/oakserver/oak) render [Handlebars template](https://handlebarsjs.com/) at ```./view/index.handlebars```
+#### [Oak](https://github.com/oakserver/oak) render [Handlebars template](https://handlebarsjs.com/) at ```./view/index.handlebars``` [![Foo](/docs/arrows.png)](#table-of-contents)
 
 ```ts
 // app.ts
@@ -163,7 +163,7 @@ app.use(async (ctx, next) => {
 await app.listen({ port: 8000 });
 ```
 
-#### Asychronous fetching remote template, ```viewConfig.useCache = true``` is recommended
+#### Asychronous fetching remote template, ```viewConfig.useCache = true``` is recommended [![Foo](/docs/arrows.png)](#table-of-contents)
 ```ts
 // app.ts
 import { Application } from "https://deno.land/x/oak/mod.ts";
@@ -192,7 +192,7 @@ app.use(async (ctx, next) => {
 await app.listen({ port: 8000 });
 ```
 ---
-### Use standlone handlebar engine
+### Use standlone handlebar engine [![Foo](/docs/arrows.png)](#table-of-contents)
 ```ts
 // app.ts
 import {engineFactory } from "https://raw.githubusercontent.com/gjuoun/view-engine/master/mod.ts";
