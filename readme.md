@@ -63,9 +63,7 @@ const handlebarsEngine = await engineFactory.getHandlebarsEngine();
 const getDenjuckEngine = await engineFactory.getDenjuckEngine();
 ```
 
-#### ⚙ViewConfig
-
-[<img align="right" width="24" height="24" src="/docs/arrows.png">](#table-of-contents)
+#### ⚙ViewConfig 
 
 ```ts
 const viewConfig: ViewConfig = {
@@ -74,7 +72,7 @@ const viewConfig: ViewConfig = {
   useCache: boolean = false; // default: false, true if you want to cache template
 }
 ```
- [![Foo](/docs/arrows.png)](#table-of-contents)
+[<img align="right" width="24" height="24" src="/docs/arrows.png">](#table-of-contents)
  
 ---
 
