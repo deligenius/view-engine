@@ -1,5 +1,6 @@
 import { Context } from "https://deno.land/x/oak/mod.ts";
 import { Adapter, ViewConfig, Engine } from "../types/index.ts";
+import { getTemplate } from "../utils/utils.ts";
 
 declare module "https://deno.land/x/oak/mod.ts" {
   interface Context {
@@ -15,29 +16,23 @@ export const oakAdapter: Adapter = (
   return async function (ctx: Context, next: Function) {
     // load default view setting
     ctx.view = {
-      view_ext: config.view_ext || "",
-      view_engine: config.view_engine,
-      view_root: config.view_root || Deno.cwd(),
-      use_cache: config.use_cache || false,
+      viewExt: config.viewExt || "",
+      viewEngine: config.viewEngine,
+      viewRoot: config.viewRoot || "",
+      useCache: config.useCache || false,
       cache: config.cache || undefined,
     };
 
-    ctx.render = function (fileName: string, data?: object) {
+    ctx.render = async function (fileName: string, data?: object) {
       try {
         let template: string;
         const view = ctx.view;
         // use cache
-        if (view.use_cache && view.cache?.has(fileName)) {
+        if (view.useCache && view.cache?.has(fileName)) {
           template = view.cache.get(fileName)!;
         } else {
-          // no cache, read from file
-          template = Deno.readTextFileSync(
-            `${view.view_root}/${fileName}.${view.view_ext}`,
-          );
-          // set cache
-          if (view.use_cache) {
-            view.cache?.set(fileName, template);
-          }
+          const filePath = `${view.viewRoot}${fileName}${view.viewExt}`;
+          template = await getTemplate(filePath);
         }
 
         const renderData = { ctx: { state: ctx.state }, ...data };

@@ -5,12 +5,12 @@ export function viewEngine(
   engine: Engine,
   config: ViewConfig = <ViewConfig> {},
 ): any {
-  if (config.use_cache) {
+  if (config.useCache) {
     config.cache = new Map();
   }
 
   try {
-    config.view_engine = engine;
+    config.viewEngine = engine;
     return adapter(engine, config);
   } catch (e) {
     throw new Error("View-Engine: Wrong Engine or View type");

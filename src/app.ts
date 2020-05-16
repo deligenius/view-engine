@@ -11,15 +11,18 @@ app.use(
   viewEngine(
     oakAdapter,
     handlebarsEngine,
-    { view_root: "./view", use_cache: false },
+    { useCache: true },
   ),
 );
 
 app.use(async (ctx, next) => {
   if (ctx.request.url.pathname === "/") {
-    ctx.render("index.html", { data: { name: "jun" } });
+    await ctx.render(
+      "https://raw.githubusercontent.com/gjuoun/view-engine/master/view/index.html",
+      { data: { name: "jun" } },
+    );
   } else {
-    ctx.render("test.html", { data: { name: "jun" } });
+    ctx.render("./view/test.html", { data: { name: "jun" } });
   }
 });
 

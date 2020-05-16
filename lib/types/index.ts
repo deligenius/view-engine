@@ -1,8 +1,8 @@
 export interface ViewConfig {
-  view_root?: string;
-  view_ext?: string;
-  use_cache?: boolean;
-  view_engine?: Engine | undefined;
+  viewRoot?: string;
+  viewExt?: string;
+  useCache?: boolean;
+  viewEngine?: Engine | undefined;
   cache?: Map<string, string>;
 }
 
