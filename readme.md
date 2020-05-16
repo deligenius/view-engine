@@ -2,6 +2,7 @@
 
 > A Template View Engine for Deno frameworks
 
+#### Features: 
 - Support **multiple templating engines**📰
   - Current support [Denjucks](https://github.com/denjucks/denjucks), [Ejs](https://github.com/mde/ejs) and [Handlebars](https://handlebarsjs.com/)
   - Engines can be used **standalone**🎙 - [Use standlone handlebar engine](#Use-standlone-handlebar-engine)
@@ -49,6 +50,7 @@ const viewConfig: ViewConfig = {
   useCache: boolean = false; // default: false, true if you want to cache template
 }
 ```
+---
 
 ### Examples
 > 
