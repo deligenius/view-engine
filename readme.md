@@ -4,6 +4,7 @@
 
 - Support multiple templating engines
   - Current support [Denjucks](https://github.com/denjucks/denjucks), [Ejs](https://github.com/mde/ejs) and [Handlebars](https://handlebarsjs.com/)
+  - Engines can be used standalone - [Use standlone handlebar engine](#Use-standlone-handlebar-engine)
 - Framework neutral, it uses adapter to load engine
   - Current support [Oak](https://github.com/oakserver/oak)
 - Local file loading
@@ -133,7 +134,7 @@ app.use(async (ctx, next) => {
 await app.listen({ port: 8000 });
 ```
 
-* Use standlone handlebar engine
+#### Use standlone handlebar engine
 ```ts
 // app.ts
 import {engineFactory } from "https://raw.githubusercontent.com/gjuoun/view-engine/master/mod.ts";
