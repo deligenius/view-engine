@@ -22,11 +22,11 @@
 
 * [Examples](#Examples)
   
-    * [Use Oak to render Ejs template at ./index.ejs](#Use-Oak-to-render-Ejs-template-at-./index.ejs)
-  * [Oak render Handlebars template at ./view/index.handlebars](#Oak-render-Handlebars-template-at-./view/index.handlebars)
-  * [Asychronous fetching remote template](Asychronous-fetching-remote-template,-viewConfig.useCache-=-true-is-recommended)
+    * [Use Oak to render Ejs template at ./index.ejs](#use-oak-to-render-ejs-template-at-indexejs)
+  * [Oak render Handlebars template at ./view/index.handlebars](#oak-render-handlebars-template-at-viewindexhandlebars)
+  * [Asychronous fetching remote template](#asychronous-fetching-remote-template-viewconfigusecache--true-is-recommended)
 
-* [Use standlone handlebar engine](#Use-standlone-handlebar-engine)
+* [Use standlone handlebar engine](#use-standlone-handlebar-engine)
 
 ---
 ### Usage
@@ -152,7 +152,7 @@ app.use(async (ctx, next) => {
 await app.listen({ port: 8000 });
 ```
 ---
-#### Use standlone handlebar engine
+### Use standlone handlebar engine
 ```ts
 // app.ts
 import {engineFactory } from "https://raw.githubusercontent.com/gjuoun/view-engine/master/mod.ts";
