@@ -133,7 +133,7 @@ app.use(async (ctx, next) => {
 
 await app.listen({ port: 8000 });
 ```
-
+---
 #### Use standlone handlebar engine
 ```ts
 // app.ts
