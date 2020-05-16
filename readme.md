@@ -26,7 +26,8 @@
   * [⚙ViewConfig](#viewconfig)
 
 * [Examples](#Examples)
-  
+
+  * [Use Oak to render Denjucks template at ./index.html](#use-oak-to-render-denjucks-template-at-indexhtml)
   * [Use Oak to render Ejs template at ./index.ejs](#use-oak-to-render-ejs-template-at-indexejs)
   * [Oak render Handlebars template at ./view/index.handlebars](#oak-render-handlebars-template-at-viewindexhandlebars)
   * [Asychronous fetching remote template](#asychronous-fetching-remote-template-viewconfigusecache--true-is-recommended)
