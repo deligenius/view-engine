@@ -5,9 +5,6 @@ export function viewEngine(
   engine: Engine,
   config: ViewConfig = <ViewConfig> {},
 ): any {
-  if (config.useCache) {
-    config.cache = new Map();
-  }
 
   try {
     config.viewEngine = engine;
