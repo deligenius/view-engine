@@ -71,7 +71,7 @@ const app = new Application();
 app.use(viewEngine(oakAdapter, ejsEngine));
 
 app.use(async (ctx, next) => {
-  ctx.render("./view/index.ejs", { data: { name: "John" } });
+  ctx.render("index.ejs", { data: { name: "John" } });
 });
 
 await app.listen({ port: 8000 });
