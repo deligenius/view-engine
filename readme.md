@@ -1,6 +1,6 @@
 ## View Engine
 
-> A View Engine middleware for Deno frameworks
+> A Template View Engine for Deno frameworks
 
 - Support multiple templating engines
   - Current support [Denjucks](https://github.com/denjucks/denjucks), [Ejs](https://github.com/mde/ejs) and [Handlebars](https://handlebarsjs.com/)
