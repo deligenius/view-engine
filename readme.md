@@ -65,6 +65,8 @@ const getDenjuckEngine = await engineFactory.getDenjuckEngine();
 
 #### ⚙ViewConfig
 
+[<img align="right" width="24" height="24" src="/docs/arrows.png">](#table-of-contents)
+
 ```ts
 const viewConfig: ViewConfig = {
   viewRoot: string = "./view"; // default: "", specify root path, it can be remote address
