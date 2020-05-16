@@ -1,12 +1,8 @@
 // app.ts
 import { Application } from "https://deno.land/x/oak/mod.ts";
-import {
-  viewEngine,
-  engineFactory,
-  adapterFactory,
-} from "https://raw.githubusercontent.com/gjuoun/view-engine/master/mod.ts";
+import { viewEngine, engineFactory, adapterFactory } from "https://raw.githubusercontent.com/gjuoun/view-engine/master/mod.ts";
 
-const denjuckEngine = await engineFactory.getDenjuckEngine();
+const handlebarsEngine = await engineFactory.getHandlebarsEngine();
 const oakAdapter = await adapterFactory.getOakAdapter();
 
 const app = new Application();
@@ -14,12 +10,16 @@ const app = new Application();
 app.use(
   viewEngine(
     oakAdapter,
-    denjuckEngine,
-  ),
-);
+    handlebarsEngine,
+    {useCache: true}
+  ));
 
 app.use(async (ctx, next) => {
-  ctx.render("./view/index.html", { data: { name: "John" } });
+  const remoteTemplate =
+    `https://raw.githubusercontent.com/gjuoun/view-engine/master/view/index.handlebars`
+
+  // use 'await' for feting remote template
+  await ctx.render(remoteTemplate, { data: { name: "John" } });
 });
 
 await app.listen({ port: 8000 });

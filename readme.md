@@ -177,7 +177,8 @@ const app = new Application();
 app.use(
   viewEngine(
     oakAdapter,
-    handlebarsEngine
+    handlebarsEngine,
+    {useCache: true}
   ));
 
 app.use(async (ctx, next) => {
