@@ -1,16 +1,16 @@
-## View Engine
+## 🚀 View Engine
 
 > A Template View Engine for Deno frameworks
 
-- Support multiple templating engines
+- 📰Support multiple templating engines
   - Current support [Denjucks](https://github.com/denjucks/denjucks), [Ejs](https://github.com/mde/ejs) and [Handlebars](https://handlebarsjs.com/)
-  - Engines can be used standalone - [Use standlone handlebar engine](#Use-standlone-handlebar-engine)
-- Framework neutral, it uses adapter to load engine
+  - 🎙Engines can be used standalone - [Use standlone handlebar engine](#Use-standlone-handlebar-engine)
+- 🎨Framework neutral, it uses adapter to load engine
   - Current support [Oak](https://github.com/oakserver/oak)
-- Local file loading
-- Ashychorous remote file fetching (fetching template on the fly )
-- Template Caching
-- Dynamic module import, uses `await` to load adapters and engines
+- ⛱Local file loading
+- ⚡Ashychorous remote file fetching (fetching template on the fly )
+- 🔥Template Caching
+- 🌈Dynamic module import, uses `await` to load adapters and engines
 
 ### Usage
 
