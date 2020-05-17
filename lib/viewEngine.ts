@@ -3,10 +3,13 @@ import { Adapter, Engine, ViewConfig } from "./types/index.ts";
 export function viewEngine(
   adapter: Adapter,
   engine: Engine,
-  config: ViewConfig = <ViewConfig> {},
+  config: ViewConfig = <ViewConfig>{},
 ): any {
 
   try {
+    if (config.useCache) {
+      config.cache = new Map()
+    }
     config.viewEngine = engine;
     return adapter(engine, config);
   } catch (e) {

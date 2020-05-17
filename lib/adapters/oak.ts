@@ -11,7 +11,7 @@ declare module "https://deno.land/x/oak/mod.ts" {
 
 export const oakAdapter: Adapter = (
   renderEngine: Engine,
-  config: ViewConfig = <ViewConfig> {},
+  config: ViewConfig = <ViewConfig>{},
 ) => {
   return async function (ctx: Context, next: Function) {
     // load default view setting
@@ -20,7 +20,7 @@ export const oakAdapter: Adapter = (
       viewEngine: config.viewEngine,
       viewRoot: config.viewRoot || "",
       useCache: config.useCache || false,
-      cache: config.useCache ? new Map() : undefined,
+      cache: config.cache || undefined,
     };
 
     ctx.render = async function (fileName: string, data?: object) {

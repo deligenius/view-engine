@@ -15,6 +15,8 @@ app.use(
   ));
 
 app.use(async (ctx, next) => {
+  console.log(ctx.view.cache)
+
   const remoteTemplate =
     `https://raw.githubusercontent.com/gjuoun/view-engine/master/view/index.handlebars`
 
