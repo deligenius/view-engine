@@ -1,10 +1,10 @@
-import { Context } from "https://deno.land/x/oak/mod.ts";
+import { Context, Application } from "https://deno.land/x/oak/mod.ts";
 import { Adapter, ViewConfig, Engine } from "../types/index.ts";
 import { getTemplate } from "../utils/utils.ts";
 
 declare module "https://deno.land/x/oak/mod.ts" {
   interface Context {
-    render?: (fileName: string, data?: object) => void ;
+    render: (fileName: string, data?: object) => void;
   }
   interface Application {
     view: ViewConfig;
@@ -29,15 +29,14 @@ export const oakAdapter: Adapter = (
 
     ctx.render = async function (fileName: string, data?: object) {
       try {
-        let template: string | undefined;
-        let filePath: string | undefined;
-        let view: ViewConfig | undefined = ctx.app.view;
+        let template: string;
+        const view = ctx.app.view;
 
         // use cache
         if (view.useCache && view.cache?.has(fileName)) {
           template = view.cache.get(fileName)!;
         } else {
-          filePath = view.viewRoot + fileName + view.viewExt;
+          const filePath = view.viewRoot + fileName + view.viewExt;
           template = await getTemplate(filePath);
           // cache template
           if (view.useCache) {
@@ -45,27 +44,15 @@ export const oakAdapter: Adapter = (
           }
         }
 
-        let renderData: object | undefined = {
-          ctx: { state: ctx.state },
-          ...data,
-        };
+        const renderData = { ctx: { state: ctx.state }, ...data };
 
         ctx.response.body = renderEngine(template, renderData);
         ctx.response.headers.set("Content-Type", "text/html; charset=utf-8");
-
-        //release vars
-        template = undefined;
-        filePath = undefined;
-        renderData = undefined;
-        view = undefined;
       } catch (e) {
         ctx.response.status = 404;
       }
     };
 
     await next();
-
-    // release render function
-    ctx.render = undefined;
   };
 };
