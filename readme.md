@@ -196,7 +196,6 @@ await app.listen({ port: 8000 });
 ```
 ## [🔝](#table-of-contents)
 
----
 
 ### Use standalone handlebar engine
 ```ts
