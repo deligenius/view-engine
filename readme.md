@@ -1,8 +1,6 @@
 ## 🚀 View Engine
 
-<p align="center">
-  <img width="128"  src="./docs/icon.png">
-</p>
+![View Engine Logo](./docs/icon.png)
 
 > A Template View Engine for Deno frameworks
 
