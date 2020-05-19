@@ -100,7 +100,7 @@ import {
   viewEngine,
   engineFactory,
   adapterFactory,
-} from "https://raw.githubusercontent.com/gjuoun/view-engine/master/mod.ts";
+} from "https://deno.land/x/view_engine/mod.ts";
 
 const denjuckEngine = await engineFactory.getDenjuckEngine();
 const oakAdapter = await adapterFactory.getOakAdapter();
@@ -127,7 +127,7 @@ import {
   viewEngine,
   engineFactory,
   adapterFactory,
-} from "https://raw.githubusercontent.com/gjuoun/view-engine/master/mod.ts";
+} from "https://deno.land/x/view_engine/mod.ts";
 
 const ejsEngine = await engineFactory.getEjsEngine();
 const oakAdapter = await adapterFactory.getOakAdapter();
@@ -154,7 +154,7 @@ import {
   viewEngine,
   engineFactory,
   adapterFactory,
-} from "https://raw.githubusercontent.com/gjuoun/view-engine/master/mod.ts";
+} from "https://deno.land/x/view_engine/mod.ts";
 
 const handlebarsEngine = await engineFactory.getHandlebarsEngine();
 const oakAdapter = await adapterFactory.getOakAdapter();
@@ -186,7 +186,7 @@ import {
   viewEngine,
   engineFactory,
   adapterFactory,
-} from "https://raw.githubusercontent.com/gjuoun/view-engine/master/mod.ts";
+} from "https://deno.land/x/view_engine/mod.ts";
 
 const handlebarsEngine = await engineFactory.getHandlebarsEngine();
 const oakAdapter = await adapterFactory.getOakAdapter();
@@ -196,9 +196,9 @@ const app = new Application();
 app.use(viewEngine(oakAdapter, handlebarsEngine, { useCache: true }));
 
 app.use(async (ctx, next) => {
-  const remoteTemplate = `https://raw.githubusercontent.com/gjuoun/view-engine/master/view/index.handlebars`;
+  const remoteTemplate = `https://deno.land/x/view_engine/view/test.handlebars`;
 
-  // use 'await' for feting remote template
+  // use 'await' for fetching remote template
   await ctx.render(remoteTemplate, { data: { name: "John" } });
 });
 
@@ -211,7 +211,7 @@ await app.listen({ port: 8000 });
 
 ```ts
 // app.ts
-import { engineFactory } from "https://raw.githubusercontent.com/gjuoun/view-engine/master/mod.ts";
+import { engineFactory } from "https://deno.land/x/view_engine/mod.ts";
 
 const handlebarsEngine = await engineFactory.getHandlebarsEngine();
 
