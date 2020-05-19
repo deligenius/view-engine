@@ -32,7 +32,7 @@
   * [Oak render Handlebars template at ./view/index.handlebars](#oak-render-handlebars-template-at-viewindexhandlebars)
   * [Asychronous fetching remote template](#asychronous-fetching-remote-template-viewconfigusecache--true-is-recommended)
 
-* [Use standlone engine](#use-standlone-handlebar-engine)
+* [Use standalone engine](#use-standalone-handlebar-engine)
 
 ---
 ### Usage
