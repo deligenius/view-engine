@@ -72,9 +72,9 @@ const denjuckEngine = await engineFactory.getDenjuckEngine();
 
 ```ts
 const viewConfig: ViewConfig = {
-  viewRoot: string = "./view"; // default: "", specify root path, it can be remote address
-  viewExt: string = ".html";  // default: "", specify file extension
-  useCache: boolean = false; // default: false, true if you want to cache template
+  viewRoot: <string>"./view", // default: "", specify root path, it can be remote address
+  viewExt: <string>".html",  // default: "", specify file extension
+  useCache: <boolean> false // default: false, true if you want to cache template
 }
 ```
 

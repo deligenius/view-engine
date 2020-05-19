@@ -1,4 +1,7 @@
 <body>
-  Hobbies of <%=data.name%> are:<br />
+  Hobbies of <%=data.name%> 
+  <% if(data.people){ %>
+    <h2><%= data.people.join(", "); %></h2>
+  <% } %>
 
 </body>
