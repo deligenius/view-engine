@@ -1,6 +1,8 @@
 ## 🚀 View Engine
 
-![An image](./docs/icon.png){:height="50%" width="50%"}
+<p align="center">
+  <img width="128"  src="./docs/icon.png">
+</p>
 
 > A Template View Engine for Deno frameworks
 
@@ -9,7 +11,8 @@
 [![tag](https://img.shields.io/badge/deno-v1.0.0-green.svg)](https://github.com/denoland/deno)
 [![tag](https://img.shields.io/badge/std-0.51.0-green.svg)](https://github.com/denoland/deno)
 
-### Features: 
+### Features:
+
 - Support **multiple templating engines**📰
   - Current support [Denjucks](https://github.com/denjucks/denjucks), [Ejs](https://github.com/mde/ejs) and [Handlebars](https://handlebarsjs.com/)
   - Engines can be used **standalone**🎙 - [Use standlone handlebar engine](#Use-standalone-handlebar-engine)
@@ -21,28 +24,30 @@
 - **Dynamic module import**, uses `await` to load adapters and engines🌈
 
 ### Table of Contents
-* [Usage](#Usage)
 
-  * [🎛Adapter](#adapter)
-  * [🚀Engine](#engine)
-  * [⚙ViewConfig](#viewconfig)
+- [Usage](#Usage)
 
-* [Examples](#Examples)
+  - [🎛Adapter](#adapter)
+  - [🚀Engine](#engine)
+  - [⚙ViewConfig](#viewconfig)
 
-  * [Use Oak to render Denjucks template at ./index.html](#use-oak-to-render-denjucks-template-at-indexhtml)
-  * [Use Oak to render Ejs template at ./index.ejs](#use-oak-to-render-ejs-template-at-indexejs)
-  * [Oak render Handlebars template at ./view/index.handlebars](#oak-render-handlebars-template-at-viewindexhandlebars)
-  * [Asychronous fetching remote template](#asychronous-fetching-remote-template-viewconfigusecache--true-is-recommended)
+- [Examples](#Examples)
 
-* [Use standalone engine](#use-standalone-handlebar-engine)
+  - [Use Oak to render Denjucks template at ./index.html](#use-oak-to-render-denjucks-template-at-indexhtml)
+  - [Use Oak to render Ejs template at ./index.ejs](#use-oak-to-render-ejs-template-at-indexejs)
+  - [Oak render Handlebars template at ./view/index.handlebars](#oak-render-handlebars-template-at-viewindexhandlebars)
+  - [Asychronous fetching remote template](#asychronous-fetching-remote-template-viewconfigusecache--true-is-recommended)
+
+- [Use standalone engine](#use-standalone-handlebar-engine)
 
 ---
+
 ### Usage
 
 ```ts
 viewEngine(
-  adapter: Adapter, 
-  engine:Engine, 
+  adapter: Adapter,
+  engine:Engine,
   viewConfig?: ViewConfig
 )
 ```
@@ -65,7 +70,7 @@ const handlebarsEngine = await engineFactory.getHandlebarsEngine();
 const denjuckEngine = await engineFactory.getDenjuckEngine();
 ```
 
-#### ⚙ViewConfig 
+#### ⚙ViewConfig
 
 ```ts
 const viewConfig: ViewConfig = {
@@ -74,11 +79,13 @@ const viewConfig: ViewConfig = {
   useCache: boolean = false; // default: false, true if you want to cache template
 }
 ```
+
 ## [🔝](#table-of-contents)
 
 ### Examples
 
-#### Use [Oak](https://github.com/oakserver/oak) to render [Denjucks template](https://github.com/denjucks/denjucks) at ```./index.html```
+#### Use [Oak](https://github.com/oakserver/oak) to render [Denjucks template](https://github.com/denjucks/denjucks) at `./index.html`
+
 ```html
 <--index.html-->
 <body>
@@ -100,9 +107,7 @@ const oakAdapter = await adapterFactory.getOakAdapter();
 
 const app = new Application();
 
-app.use(
-  viewEngine(oakAdapter,denjuckEngine)
-);
+app.use(viewEngine(oakAdapter, denjuckEngine));
 
 app.use(async (ctx, next) => {
   ctx.render("index.html", { data: { name: "John" } });
@@ -110,9 +115,10 @@ app.use(async (ctx, next) => {
 
 await app.listen({ port: 8000 });
 ```
+
 ## [🔝](#table-of-contents)
 
-#### Use [Oak](https://github.com/oakserver/oak) to render [Ejs template](https://ejs.co/) at ```./index.ejs```
+#### Use [Oak](https://github.com/oakserver/oak) to render [Ejs template](https://ejs.co/) at `./index.ejs`
 
 ```ts
 // app.ts
@@ -136,14 +142,19 @@ app.use(async (ctx, next) => {
 
 await app.listen({ port: 8000 });
 ```
+
 ## [🔝](#table-of-contents)
 
-#### [Oak](https://github.com/oakserver/oak) render [Handlebars template](https://handlebarsjs.com/) at ```./view/index.handlebars```
+#### [Oak](https://github.com/oakserver/oak) render [Handlebars template](https://handlebarsjs.com/) at `./view/index.handlebars`
 
 ```ts
 // app.ts
 import { Application } from "https://deno.land/x/oak/mod.ts";
-import { viewEngine, engineFactory, adapterFactory } from "https://raw.githubusercontent.com/gjuoun/view-engine/master/mod.ts";
+import {
+  viewEngine,
+  engineFactory,
+  adapterFactory,
+} from "https://raw.githubusercontent.com/gjuoun/view-engine/master/mod.ts";
 
 const handlebarsEngine = await engineFactory.getHandlebarsEngine();
 const oakAdapter = await adapterFactory.getOakAdapter();
@@ -151,13 +162,10 @@ const oakAdapter = await adapterFactory.getOakAdapter();
 const app = new Application();
 
 app.use(
-  viewEngine(
-    oakAdapter,
-    handlebarsEngine,
-    {
-      viewRoot: "./view",
-      viewExt: ".handlebars"
-    }),
+  viewEngine(oakAdapter, handlebarsEngine, {
+    viewRoot: "./view",
+    viewExt: ".handlebars",
+  })
 );
 
 app.use(async (ctx, next) => {
@@ -166,29 +174,29 @@ app.use(async (ctx, next) => {
 
 await app.listen({ port: 8000 });
 ```
+
 ## [🔝](#table-of-contents)
 
-#### Asychronous fetching remote template, ```viewConfig.useCache = true``` is recommended 
+#### Asychronous fetching remote template, `viewConfig.useCache = true` is recommended
+
 ```ts
 // app.ts
 import { Application } from "https://deno.land/x/oak/mod.ts";
-import { viewEngine, engineFactory, adapterFactory } from "https://raw.githubusercontent.com/gjuoun/view-engine/master/mod.ts";
+import {
+  viewEngine,
+  engineFactory,
+  adapterFactory,
+} from "https://raw.githubusercontent.com/gjuoun/view-engine/master/mod.ts";
 
 const handlebarsEngine = await engineFactory.getHandlebarsEngine();
 const oakAdapter = await adapterFactory.getOakAdapter();
 
 const app = new Application();
 
-app.use(
-  viewEngine(
-    oakAdapter,
-    handlebarsEngine,
-    {useCache: true}
-  ));
+app.use(viewEngine(oakAdapter, handlebarsEngine, { useCache: true }));
 
 app.use(async (ctx, next) => {
-  const remoteTemplate =
-    `https://raw.githubusercontent.com/gjuoun/view-engine/master/view/index.handlebars`
+  const remoteTemplate = `https://raw.githubusercontent.com/gjuoun/view-engine/master/view/index.handlebars`;
 
   // use 'await' for feting remote template
   await ctx.render(remoteTemplate, { data: { name: "John" } });
@@ -196,29 +204,31 @@ app.use(async (ctx, next) => {
 
 await app.listen({ port: 8000 });
 ```
+
 ## [🔝](#table-of-contents)
 
-
 ### Use standalone handlebar engine
+
 ```ts
 // app.ts
-import {engineFactory } from "https://raw.githubusercontent.com/gjuoun/view-engine/master/mod.ts";
+import { engineFactory } from "https://raw.githubusercontent.com/gjuoun/view-engine/master/mod.ts";
 
 const handlebarsEngine = await engineFactory.getHandlebarsEngine();
 
 const template = `
 <body>
   My name is {{data.name}}
-</body>`
+</body>`;
 
-const rendered = handlebarsEngine(template, {data: {name: "John"}})
-console.log(rendered)
+const rendered = handlebarsEngine(template, { data: { name: "John" } });
+console.log(rendered);
 /*
 <body>
   My name is John
 </body>
  */
 ```
+
 ## [🔝](#table-of-contents)
 
 ### Roadmap
