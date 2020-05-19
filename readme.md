@@ -1,5 +1,7 @@
 ## 🚀 View Engine
 
+![View Engine Logo](./docs/icon.png | width=100)
+
 > A Template View Engine for Deno frameworks
 
 [![tag](https://img.shields.io/github/tag/gjuoun/view-engine.svg)](https://github.com/gjuoun/view-engine)
