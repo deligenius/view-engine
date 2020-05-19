@@ -72,9 +72,9 @@ const viewConfig: ViewConfig = {
   useCache: boolean = false; // default: false, true if you want to cache template
 }
 ```
-[<img alt="🔼" align="right" width="24" height="24" src="./docs/arrows.png">](#table-of-contents)
  
 ---
+[<img alt="🔼" align="right" width="24" height="24" src="./docs/arrows.png">](#table-of-contents)
 
 ### Examples
 
