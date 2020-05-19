@@ -1,6 +1,6 @@
 ## 🚀 View Engine
 
-![An image](./docs/icon.png) <!-- .element height="50%" width="50%" -->
+![An image](./docs/icon.png){:height="50%" width="50%"}
 
 > A Template View Engine for Deno frameworks
 
