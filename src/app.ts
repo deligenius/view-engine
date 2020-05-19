@@ -1,7 +1,7 @@
 // app.ts
 import { Application } from "https://deno.land/x/oak/mod.ts";
-// import { viewEngine, engineFactory, adapterFactory } from "https://raw.githubusercontent.com/gjuoun/view-engine/master/mod.ts";
-import { viewEngine, engineFactory, adapterFactory } from "../mod.ts";
+import { viewEngine, engineFactory, adapterFactory } from "https://raw.githubusercontent.com/gjuoun/view-engine/master/mod.ts";
+// import { viewEngine, engineFactory, adapterFactory } from "../mod.ts";
 
 const handlebarsEngine = await engineFactory.getHandlebarsEngine();
 const oakAdapter = await adapterFactory.getOakAdapter();
