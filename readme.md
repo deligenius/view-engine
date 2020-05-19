@@ -72,9 +72,7 @@ const viewConfig: ViewConfig = {
   useCache: boolean = false; // default: false, true if you want to cache template
 }
 ```
- 
----
-[<img alt="🔼" align="right" width="24" height="24" src="./docs/arrows.png">](#table-of-contents)
+## [🔝](#table-of-contents)
 
 ### Examples
 
@@ -110,7 +108,7 @@ app.use(async (ctx, next) => {
 
 await app.listen({ port: 8000 });
 ```
-[<img alt="🔼" align="right" width="24" height="24" src="./docs/arrows.png">](#table-of-contents)
+## [🔝](#table-of-contents)
 
 #### Use [Oak](https://github.com/oakserver/oak) to render [Ejs template](https://ejs.co/) at ```./index.ejs```
 
@@ -136,7 +134,7 @@ app.use(async (ctx, next) => {
 
 await app.listen({ port: 8000 });
 ```
-[<img alt="🔼" align="right" width="24" height="24" src="./docs/arrows.png">](#table-of-contents)
+## [🔝](#table-of-contents)
 
 #### [Oak](https://github.com/oakserver/oak) render [Handlebars template](https://handlebarsjs.com/) at ```./view/index.handlebars```
 
@@ -166,7 +164,7 @@ app.use(async (ctx, next) => {
 
 await app.listen({ port: 8000 });
 ```
-[<img alt="🔼" align="right" width="24" height="24" src="./docs/arrows.png">](#table-of-contents)
+## [🔝](#table-of-contents)
 
 #### Asychronous fetching remote template, ```viewConfig.useCache = true``` is recommended 
 ```ts
@@ -196,7 +194,7 @@ app.use(async (ctx, next) => {
 
 await app.listen({ port: 8000 });
 ```
-[<img alt="🔼" align="right" width="24" height="24" src="./docs/arrows.png">](#table-of-contents)
+## [🔝](#table-of-contents)
 
 ---
 
@@ -220,7 +218,7 @@ console.log(rendered)
 </body>
  */
 ```
-[<img alt="🔼" align="right" width="24" height="24" src="./docs/arrows.png">](#table-of-contents)
+## [🔝](#table-of-contents)
 
 ### Roadmap
 
