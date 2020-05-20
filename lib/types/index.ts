@@ -7,12 +7,12 @@ export interface ViewConfig {
 }
 
 export type Adapter = (
-  renderEngine: Engine,
+  renderEngine: Engine | ReactEngine,
   config: ViewConfig,
 ) => void;
 
-export type Engine =
-  ((template: string, data: object) => string) |
-  ((reactComponent: React.FC<any>, data: object) => string)
+export type Engine = (template: string, data: object) => string
 
+
+export type ReactEngine = (template: React.FC, data: object) => string
 

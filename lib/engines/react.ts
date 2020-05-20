@@ -1,11 +1,11 @@
 // @deno-types="../../node_modules/@types/react-dom/server/index.d.ts"
-import ReactDOMServer from "https://dev.jspm.io/react-dom/server.js";
+import ReactDOMServer from "https://dev.jspm.io/react-dom@16.13.1/server.js";
 // @deno-types="../../node_modules/@types/react/index.d.ts"
-import React from "https://dev.jspm.io/react/index.js";
+import React from "https://dev.jspm.io/react@16.13.1/index.js";
 
-import { Engine } from "../types/index.ts";
+import { ReactEngine } from "../types/index.ts";
 
-export const renderReact: Engine = (
+export const renderReact: ReactEngine = (
   component: React.FC,
   data: any,
 ): string => {

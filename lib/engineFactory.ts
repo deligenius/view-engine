@@ -1,4 +1,4 @@
-import { Engine } from "./types/index.ts";
+import { Engine, ReactEngine } from "./types/index.ts";
 
 class EngineFactory {
   constructor() {}
@@ -16,7 +16,7 @@ class EngineFactory {
     return (await import("./engines/handlebars.ts")).renderHandlebars;
   }
 
-  async getReactEngine(): Promise<Engine> {
+  async getReactEngine(): Promise<ReactEngine> {
     return (await import("./engines/react.ts")).renderReact;
   }
 }

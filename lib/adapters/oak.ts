@@ -1,5 +1,5 @@
 import { Context, Application } from "https://deno.land/x/oak/mod.ts";
-import { Adapter, ViewConfig, Engine } from "../types/index.ts";
+import { Adapter, ViewConfig, Engine, ReactEngine } from "../types/index.ts";
 import { getTemplate } from "../utils/utils.ts";
 
 declare module "https://deno.land/x/oak/mod.ts" {
@@ -12,7 +12,7 @@ declare module "https://deno.land/x/oak/mod.ts" {
 }
 
 export const oakAdapter: Adapter = (
-  renderEngine: Engine,
+  renderEngine: Engine | ReactEngine,
   config: ViewConfig = <ViewConfig> {},
 ) => {
   return async function (ctx: Context, next: Function) {
@@ -50,6 +50,7 @@ export const oakAdapter: Adapter = (
         ctx.response.headers.set("Content-Type", "text/html; charset=utf-8");
       } catch (e) {
         ctx.response.status = 404;
+        console.log(e.message)
       }
     };
 

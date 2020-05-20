@@ -1,9 +1,9 @@
-import { Adapter, Engine, ViewConfig } from "./types/index.ts";
+import { Adapter, Engine, ViewConfig, ReactEngine } from "./types/index.ts";
 
 
 export function viewEngine(
   adapter: Adapter,
-  engine: Engine,
+  engine: Engine | ReactEngine,
   config: ViewConfig = <ViewConfig> {},
 ): any {
   try {
