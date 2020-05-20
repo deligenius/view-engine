@@ -122,6 +122,8 @@ Then run
 ```ts
 > deno run --allow-net --allow-read ./app.ts
 ```
+Open any browser, type ```http://localhost:8000``` you should see the result.
+
 
 ## [🔝](#table-of-contents)
 
