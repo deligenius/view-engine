@@ -29,7 +29,7 @@ export const oakAdapter: Adapter = (
 
     ctx.render = async function (fileName: string, data?: object) {
       try {
-        let template: string;
+        let template: any;
         const view = ctx.app.view;
 
         // use cache

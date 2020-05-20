@@ -1,6 +1,3 @@
+const component = (await import(`file:\\\\C:\\Users\\gjuoun\\Code\\Deno\\test\\oak-view-engine\\view\\index.tsx`)).default
 
-const url = new URL("https://deno.land/typedoc/classes/")
-// const file = new URL("./usr/home/gjuoun")
-
-console.log(url)
-// console.log(file)
+console.log(component)

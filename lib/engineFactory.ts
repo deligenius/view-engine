@@ -15,6 +15,10 @@ class EngineFactory {
   async getHandlebarsEngine(): Promise<Engine> {
     return (await import("./engines/handlebars.ts")).renderHandlebars;
   }
+
+  async getReactEngine(): Promise<Engine> {
+    return (await import("./engines/react.ts")).renderReact;
+  }
 }
 
 export const engineFactory = new EngineFactory();

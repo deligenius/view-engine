@@ -4,24 +4,25 @@ import {
   viewEngine,
   engineFactory,
   adapterFactory,
-} from "https://deno.land/x/view_engine/mod.ts";
+} from "../mod.ts";
+// import json parser
+import { jsonParser } from "https://raw.githubusercontent.com/gjuoun/oak-json-parser/master/mod.ts"
 
-const ejsEngine = await engineFactory.getEjsEngine();
-const oakAdapter = await adapterFactory.getOakAdapter();
+
+const reactEngine = await engineFactory.getReactEngine();
+const oakAdapter = await adapterFactory.getOakAdapter()
 
 const app = new Application();
 
-app.use(viewEngine(oakAdapter, ejsEngine, {useCache: true}));
+app.use(jsonParser())
+
+app.use(viewEngine(oakAdapter, reactEngine));
 
 app.use(async (ctx, next) => {
-  const people = ['geddy', 'neil', 'alex']
-  ctx.render("view/index.ejs", { data: { name: "John", people } });
+  // const people = ['geddy', 'neil', 'alex']
+  // ctx.render("view/index.ejs", { data: { name: "John", people } });
+  console.log(ctx.request.json)
+  await ctx.render("./view/index.tsx", ctx.request.json)
 });
 
-await app.listen({ port: 8000 });
-
-const viewConfig = {
-  viewRoot: <string>"./view", // default: "", specify root path, it can be remote address
-  viewExt: <string>".html",  // default: "", specify file extension
-  useCache: <boolean> false // default: false, true if you want to cache template
-}
+await app.listen({ port: 3000 })

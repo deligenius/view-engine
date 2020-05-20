@@ -1,10 +1,27 @@
+import { posix } from "https://deno.land/std/path/mod.ts";
+
 export async function getTemplate(filePath: string) {
   const urlRegex =
     /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
 
-  if (filePath.match(urlRegex)) {
+  // if render React
+  if (filePath.match(/(tsx|jsx)$/)) {
+    // remote url
+    if (filePath.match(urlRegex)) {
+      return (await import(filePath)).default
+    } else {
+      const realFilePath = posix.join("../../", filePath)
+      const res = (await import(realFilePath)).default
+      return res
+    }
+  }
+  // if render url
+  else if (filePath.match(urlRegex)) {
     return await fetch(filePath).then((res) => res.text());
-  } else {
+  }
+  // if render 
+  else {
     return Deno.readTextFileSync(filePath);
   }
 }
+
