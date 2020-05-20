@@ -4,25 +4,17 @@ import {
   viewEngine,
   engineFactory,
   adapterFactory,
-} from "../mod.ts";
-// import json parser
-import { jsonParser } from "https://raw.githubusercontent.com/gjuoun/oak-json-parser/master/mod.ts"
+} from "https://deno.land/x/view_engine/mod.ts";
 
-
-const reactEngine = await engineFactory.getReactEngine();
-const oakAdapter = await adapterFactory.getOakAdapter()
+const denjuckEngine = await engineFactory.getDenjuckEngine();
+const oakAdapter = await adapterFactory.getOakAdapter();
 
 const app = new Application();
 
-app.use(jsonParser())
-
-app.use(viewEngine(oakAdapter, reactEngine));
+app.use(viewEngine(oakAdapter, denjuckEngine));
 
 app.use(async (ctx, next) => {
-  // const people = ['geddy', 'neil', 'alex']
-  // ctx.render("view/index.ejs", { data: { name: "John", people } });
-  console.log(ctx.request.json)
-  await ctx.render("./view/index.tsx", ctx.request.json)
+  ctx.render("./view/index.html", { data: { name: "John" } });
 });
 
-await app.listen({ port: 3000 })
+await app.listen({ port: 8000 });

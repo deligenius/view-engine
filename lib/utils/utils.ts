@@ -8,7 +8,8 @@ export async function getTemplate(filePath: string) {
   if (filePath.match(/(tsx|jsx)$/)) {
     // remote url
     if (filePath.match(urlRegex)) {
-      return (await import(filePath)).default
+      const res = (await import(filePath)).default
+      return res
     } else {
       const realFilePath = posix.join("../../", filePath)
       const res = (await import(realFilePath)).default
