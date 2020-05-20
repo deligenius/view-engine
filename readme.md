@@ -90,7 +90,7 @@ Suppose you have a folder like this:
 /app.ts
 ```
 ```html
-<--index.html-->
+<!--index.html-->
 <body>
   <h1>{{data.name}}</h1>
 </body>
@@ -136,7 +136,7 @@ Suppose you have a folder like this:
 ```
 
 ```html
-<--index.html-->
+<!--index.html-->
 <body>
   Hobbies of <%=data.name%> 
 </body>
@@ -181,7 +181,7 @@ Suppose you have a folder like this:
 ```
 
 ```html
-<--/view/index.handlebars-->
+<!--/view/index.handlebars-->
 <body>
   <div>
     {{data.name}}
