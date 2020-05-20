@@ -118,6 +118,10 @@ app.use(async (ctx, next) => {
 
 await app.listen({ port: 8000 });
 ```
+Then run
+```ts
+> deno run --allow-net --allow-read ./app.ts
+```
 
 ## [🔝](#table-of-contents)
 
@@ -157,6 +161,12 @@ app.use(async (ctx, next) => {
 
 await app.listen({ port: 8000 });
 ```
+Then run
+```ts
+> deno run --allow-net --allow-read ./app.ts
+```
+Open any browser, type ```http://localhost:8000``` you should see the result.
+
 
 ## [🔝](#table-of-contents)
 
@@ -204,6 +214,8 @@ app.use(async (ctx, next) => {
 
 await app.listen({ port: 8000 });
 ```
+Open any browser, type ```http://localhost:8000``` you should see the result.
+
 
 ## [🔝](#table-of-contents)
 
@@ -234,6 +246,8 @@ app.use(async (ctx, next) => {
 
 await app.listen({ port: 8000 });
 ```
+Open any browser, type ```http://localhost:8000``` you should see the result.
+
 
 ## [🔝](#table-of-contents)
 
