@@ -1,4 +1,4 @@
-import { posix } from "https://deno.land/std/path/mod.ts";
+import {join} from 'https://deno.land/std/path/posix.ts'
 
 export async function getTemplate(filePath: string) {
   const urlRegex =
@@ -11,7 +11,7 @@ export async function getTemplate(filePath: string) {
       const res = (await import(filePath)).default
       return res
     } else {
-      const realFilePath = posix.join("../../", filePath)
+      const realFilePath = join("../../", filePath)
       const res = (await import(realFilePath)).default
       return res
     }

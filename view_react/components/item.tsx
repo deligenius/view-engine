@@ -5,7 +5,7 @@ interface Props{
   item: string
 }
 
-const App: React.FC<Props> = (props)=> {
+const Item: React.FC<Props> = (props)=> {
   return (
   <div>
     <h4>Items here - {props.item}</h4>
@@ -14,4 +14,4 @@ const App: React.FC<Props> = (props)=> {
 }
 
 
-export default App
+export default Item

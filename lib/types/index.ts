@@ -1,3 +1,6 @@
+// @deno-types="../../node_modules/@types/react/index.d.ts"
+import React from "https://dev.jspm.io/react@16.13.1/index.js";
+
 export interface ViewConfig {
   viewRoot?: string;
   viewExt?: string;

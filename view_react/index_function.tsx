@@ -18,6 +18,7 @@ class App extends React.Component<Props>{
       <div>
       <h1>Hello, world!</h1>
       <h3>{this.props.data.name}</h3>
+      <Item item="hello"></Item>
     </div>
     )
   }
