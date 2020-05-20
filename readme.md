@@ -84,6 +84,11 @@ const viewConfig: ViewConfig = {
 
 #### Use [Oak](https://github.com/oakserver/oak) to render [Denjucks template](https://github.com/denjucks/denjucks) at `./index.html`
 
+Suppose you have a folder like this: 
+```
+/index.html
+/app.ts
+```
 ```html
 <--index.html-->
 <body>
@@ -118,6 +123,18 @@ await app.listen({ port: 8000 });
 
 #### Use [Oak](https://github.com/oakserver/oak) to render [Ejs template](https://ejs.co/) at `./index.ejs`
 
+Suppose you have a folder like this: 
+```
+/index.ejs
+/app.ts
+```
+
+```html
+<--index.html-->
+<body>
+  Hobbies of <%=data.name%> 
+</body>
+```
 ```ts
 // app.ts
 import { Application } from "https://deno.land/x/oak/mod.ts";
@@ -144,6 +161,21 @@ await app.listen({ port: 8000 });
 ## [🔝](#table-of-contents)
 
 #### [Oak](https://github.com/oakserver/oak) render [Handlebars template](https://handlebarsjs.com/) at `./view/index.handlebars`
+
+Suppose you have a folder like this:
+```
+/view/index.handlebars
+/app.ts
+```
+
+```html
+<--/view/index.handlebars-->
+<body>
+  <div>
+    {{data.name}}
+  </div>
+</body>
+```
 
 ```ts
 // app.ts
@@ -194,7 +226,7 @@ const app = new Application();
 app.use(viewEngine(oakAdapter, handlebarsEngine, { useCache: true }));
 
 app.use(async (ctx, next) => {
-  const remoteTemplate = `https://deno.land/x/view_engine/view/test.handlebars`;
+  const remoteTemplate = `https://deno.land/x/view_engine/view/index.handlebars`;
 
   // use 'await' for fetching remote template
   await ctx.render(remoteTemplate, { data: { name: "John" } });
@@ -236,3 +268,4 @@ console.log(rendered);
 - [x] Support [Handlebars](https://github.com/handlebars-lang/handlebars.js)
 - [x] Cache strategy
 - [x] Framework neutral
+- [ ] Support React engine
