@@ -259,7 +259,7 @@ Open any browser, type ```http://localhost:8000``` you should see the result.
 // app.ts
 import { engineFactory } from "https://deno.land/x/view_engine/mod.ts";
 
-const handlebarsEngine = await engineFactory.getHandlebarsEngine();
+const handlebarsEngine = engineFactory.getHandlebarsEngine();
 
 const template = `
 <body>
