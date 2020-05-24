@@ -1,4 +1,4 @@
-import { Engine, ReactEngine } from "./types/index.ts";
+import { Engine } from "./types/index.ts";
 
 import { renderDenjuck } from "./engines/denjuck.ts";
 import { renderEjs } from "./engines/ejs.ts";

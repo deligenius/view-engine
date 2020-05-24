@@ -63,9 +63,9 @@ const oakAdapter = await adapterFactory.getOakAdapter();
 To get a Engine, use `engineFactory.get[EngineName]`
 
 ```ts
-const ejsEngine = await engineFactory.getEjsEngine();
-const handlebarsEngine = await engineFactory.getHandlebarsEngine();
-const denjuckEngine = await engineFactory.getDenjuckEngine();
+const ejsEngine = engineFactory.getEjsEngine();
+const handlebarsEngine = engineFactory.getHandlebarsEngine();
+const denjuckEngine = engineFactory.getDenjuckEngine();
 ```
 
 #### ⚙ViewConfig
@@ -105,8 +105,8 @@ import {
   adapterFactory,
 } from "https://deno.land/x/view_engine/mod.ts";
 
-const denjuckEngine = await engineFactory.getDenjuckEngine();
-const oakAdapter = await adapterFactory.getOakAdapter();
+const denjuckEngine = engineFactory.getDenjuckEngine();
+const oakAdapter = adapterFactory.getOakAdapter();
 
 const app = new Application();
 
@@ -150,8 +150,8 @@ import {
   adapterFactory,
 } from "https://deno.land/x/view_engine/mod.ts";
 
-const ejsEngine = await engineFactory.getEjsEngine();
-const oakAdapter = await adapterFactory.getOakAdapter();
+const ejsEngine = engineFactory.getEjsEngine();
+const oakAdapter = adapterFactory.getOakAdapter();
 
 const app = new Application();
 
@@ -198,8 +198,8 @@ import {
   adapterFactory,
 } from "https://deno.land/x/view_engine/mod.ts";
 
-const handlebarsEngine = await engineFactory.getHandlebarsEngine();
-const oakAdapter = await adapterFactory.getOakAdapter();
+const handlebarsEngine = engineFactory.getHandlebarsEngine();
+const oakAdapter = adapterFactory.getOakAdapter();
 
 const app = new Application();
 
@@ -232,8 +232,8 @@ import {
   adapterFactory,
 } from "https://deno.land/x/view_engine/mod.ts";
 
-const handlebarsEngine = await engineFactory.getHandlebarsEngine();
-const oakAdapter = await adapterFactory.getOakAdapter();
+const handlebarsEngine = engineFactory.getHandlebarsEngine();
+const oakAdapter = adapterFactory.getOakAdapter();
 
 const app = new Application();
 

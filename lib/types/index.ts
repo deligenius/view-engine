@@ -1,5 +1,3 @@
-// @deno-types="../../node_modules/@types/react/index.d.ts"
-import React from "https://dev.jspm.io/react@16.13.1/index.js";
 
 export interface ViewConfig {
   viewRoot?: string;
@@ -10,12 +8,10 @@ export interface ViewConfig {
 }
 
 export type Adapter = (
-  renderEngine: Engine | ReactEngine,
+  renderEngine: Engine,
   config: ViewConfig,
 ) => void;
 
 export type Engine = (template: string, data: object) => string
 
-
-export type ReactEngine = (template: React.FC, data: object) => string
 
