@@ -7,14 +7,9 @@ interface Props{
   }
 }
 
-const App: React.FC<Props> = (props)=> {
-  return (
-  <div>
-    <h1>Hello, world!</h1>
-    <h3>{props.data.name}</h3>
-  </div>
-);
+const Layout: React.FC<Props> = (props)=> {
+  return ();
 }
 
 
-export default App
+export default Layout
