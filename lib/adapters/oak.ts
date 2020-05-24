@@ -10,6 +10,8 @@ declare module "https://deno.land/x/oak/mod.ts" {
   }
   interface Application {
     view: ViewConfig;
+    text: string;
+
   }
 }
 

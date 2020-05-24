@@ -46,24 +46,24 @@ Deno.test({
 });
 
 
-Deno.test({
-  name: "Testing renderReact() - function component",
-  async fn() {
-    const component = await getTemplate("./view/index_function.tsx")
+// Deno.test({
+//   name: "Testing renderReact() - function component",
+//   async fn() {
+//     const component = await getTemplate("./view/index_function.tsx")
 
-    const actual = renderReact(component, { data: { name: "John" } })
-    const expect = `<div data-reactroot=\"\"><h1>Hello, world!</h1><h3>John</h3></div>`
-    assertEquals(actual, expect)
-  },
-});
+//     const actual = renderReact(component, { data: { name: "John" } })
+//     const expect = `<div data-reactroot=\"\"><h1>Hello, world!</h1><h3>John</h3></div>`
+//     assertEquals(actual, expect)
+//   },
+// });
 
-Deno.test({
-  name: "Testing renderReact() - class component",
-  async fn() {
-    const component = await getTemplate("./view/index_class.tsx")
+// Deno.test({
+//   name: "Testing renderReact() - class component",
+//   async fn() {
+//     const component = await getTemplate("./view/index_class.tsx")
 
-    const actual = renderReact(component, { data: { name: "John" } })
-    const expect = `<div data-reactroot=\"\"><h1>Hello, world!</h1><h3>John</h3></div>`
-    assertEquals(actual, expect)
-  }
-});
+//     const actual = renderReact(component, { data: { name: "John" } })
+//     const expect = `<div data-reactroot=\"\"><h1>Hello, world!</h1><h3>John</h3></div>`
+//     assertEquals(actual, expect)
+//   }
+// });

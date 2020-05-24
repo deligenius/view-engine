@@ -1,9 +1,10 @@
 import { Adapter } from "./types/index.ts";
+import { oakAdapter } from "./adapters/oak.ts";
 
 class AdapterFactory {
-  // dynamic import at runtime
-  async getOakAdapter(): Promise<Adapter> {
-    return (await import("./adapters/oak.ts")).oakAdapter;
+  
+  getOakAdapter(): Adapter {
+    return oakAdapter;
   }
 }
 

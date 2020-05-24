@@ -1,24 +1,26 @@
 import { Engine, ReactEngine } from "./types/index.ts";
 
+import { renderDenjuck } from "./engines/denjuck.ts";
+import { renderEjs } from "./engines/ejs.ts";
+import { renderHandlebars } from "./engines/handlebars.ts";
+import { renderReact } from "./engines/react.ts";
+
 class EngineFactory {
   constructor() {}
 
   // dynamic import at runtime
-  async getDenjuckEngine(): Promise<Engine> {
-    return (await import("./engines/denjuck.ts")).renderDenjuck;
+  getDenjuckEngine() {
+    return renderDenjuck;
   }
 
-  async getEjsEngine(): Promise<Engine> {
-    return (await import("./engines/ejs.ts")).renderEjs;
+  getEjsEngine() {
+    return renderEjs;
   }
 
-  async getHandlebarsEngine(): Promise<Engine> {
-    return (await import("./engines/handlebars.ts")).renderHandlebars;
+  getHandlebarsEngine() {
+    return renderHandlebars;
   }
 
-  async getReactEngine(): Promise<ReactEngine> {
-    return (await import("./engines/react.ts")).renderReact;
-  }
 }
 
 export const engineFactory = new EngineFactory();
