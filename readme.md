@@ -284,4 +284,7 @@ console.log(rendered);
 - [x] Support [Handlebars](https://github.com/handlebars-lang/handlebars.js)
 - [x] Cache strategy
 - [x] Framework neutral
-- [ ] Support React engine
+
+### Credit
+
+Original work by [@gjuoun](https://github.com/gjuoun/)
