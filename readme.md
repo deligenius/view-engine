@@ -4,10 +4,9 @@
 
 > A Template View Engine for Deno frameworks
 
-[![tag](https://img.shields.io/github/tag/gjuoun/view-engine.svg)](https://github.com/gjuoun/view-engine)
-[![license](https://img.shields.io/github/license/gjuoun/view-engine.svg)](https://github.com/gjuoun/view-engine)
-[![tag](https://img.shields.io/badge/deno-v1.0.0-green.svg)](https://github.com/denoland/deno)
-[![tag](https://img.shields.io/badge/std-0.51.0-green.svg)](https://github.com/denoland/deno)
+[![tag](https://img.shields.io/github/tag/deligenius/view-engine.svg)](https://github.com/gjuoun/view-engine)
+[![license](https://img.shields.io/github/license/deligenius/view-engine.svg)](https://github.com/gjuoun/view-engine)
+[![tag](https://img.shields.io/badge/deno-v1.0.2-green.svg)](https://github.com/denoland/deno)
 
 ### Features:
 
