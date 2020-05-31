@@ -54,7 +54,7 @@ viewEngine(
 To get an Adapter, use `adapterFactory.get[AdapterName]`
 
 ```ts
-const oakAdapter = await adapterFactory.getOakAdapter();
+const oakAdapter = adapterFactory.getOakAdapter();
 ```
 
 #### 🚀Engine
