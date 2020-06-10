@@ -25,7 +25,7 @@ export const oakAdapter: Adapter = (
       ctx.app.view = {
         viewExt: config.viewExt || "",
         viewEngine: config.viewEngine,
-        viewRoot: config.viewRoot || "./",
+        viewRoot: config.viewRoot || "",
         useCache: config.useCache || false,
         cache: config.cache || undefined,
       };

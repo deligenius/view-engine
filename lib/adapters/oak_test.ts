@@ -112,8 +112,8 @@ Deno.test({
     const controller = new AbortController();
     const { signal } = controller;
     const app = new Application();
-    const ejsEngine = engineFactory.getHandlebarsEngine();
-    app.use(viewEngine(oakAdapter, ejsEngine));
+    const handlebarsEngine = engineFactory.getHandlebarsEngine();
+    app.use(viewEngine(oakAdapter, handlebarsEngine));
 
     app.use(async (ctx, next) => {
       if (ctx.request.url.pathname === "/handlebars") {
