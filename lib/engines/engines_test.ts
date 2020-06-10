@@ -6,7 +6,7 @@ import { renderEjs } from "./ejs.ts";
 import { renderHandlebars } from "./handlebars.ts";
 
 Deno.test({
-  name: "Testing renderDenjuck()",
+  name: blue("Testing renderDenjuck()"),
   fn(): void {
     const template = `<h1>{{data.name}}</h1>`;
 
@@ -17,7 +17,28 @@ Deno.test({
 });
 
 Deno.test({
-  name: "Testing renderEjs()",
+  name: blue("Testing renderDenjuck() - extends"),
+  fn(): void {
+    const template = `
+    {% extends "./layout/parent.html" %}
+
+    {% block left %}
+    This is the left side!
+    {% endblock %}
+  
+    {% block right %}
+    This is the right side!
+    {% endblock %}
+    `;
+
+    const actual = renderDenjuck(template, {}, {viewRoot: "./view"}).replace(/\r|\s/g, "");
+    const expect = `Thisisthedefaultcontent<sectionclass="left">Thisistheleftside!</section><sectionclass="right">Thisistherightside!</section>`;
+    assertEquals(actual, expect);
+  },
+});
+
+Deno.test({
+  name: blue("Testing renderEjs()"),
   fn(): void {
     const template = `Hobbies of <%=data.name%>`;
 
@@ -28,7 +49,7 @@ Deno.test({
 });
 
 Deno.test({
-  name: "Testing renderHandlebars()",
+  name: blue("Testing renderHandlebars()"),
   fn(): void {
     const template = `<h1>{{data.name}}</h1>`;
 
@@ -37,25 +58,3 @@ Deno.test({
     assertEquals(actual, expect);
   },
 });
-
-// Deno.test({
-//   name: "Testing renderReact() - function component",
-//   async fn() {
-//     const component = await getTemplate("./view/index_function.tsx")
-
-//     const actual = renderReact(component, { data: { name: "John" } })
-//     const expect = `<div data-reactroot=\"\"><h1>Hello, world!</h1><h3>John</h3></div>`
-//     assertEquals(actual, expect)
-//   },
-// });
-
-// Deno.test({
-//   name: "Testing renderReact() - class component",
-//   async fn() {
-//     const component = await getTemplate("./view/index_class.tsx")
-
-//     const actual = renderReact(component, { data: { name: "John" } })
-//     const expect = `<div data-reactroot=\"\"><h1>Hello, world!</h1><h3>John</h3></div>`
-//     assertEquals(actual, expect)
-//   }
-// });
