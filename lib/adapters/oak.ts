@@ -25,7 +25,7 @@ export const oakAdapter: Adapter = (
       ctx.app.view = {
         viewExt: config.viewExt || "",
         viewEngine: config.viewEngine,
-        viewRoot: config.viewRoot || "",
+        viewRoot: config.viewRoot || "./",
         useCache: config.useCache || false,
         cache: config.cache || undefined,
       };
@@ -52,7 +52,7 @@ export const oakAdapter: Adapter = (
 
         const renderData = { ctx: { state: ctx.state }, ...data };
 
-        ctx.response.body = renderEngine(template, renderData);
+        ctx.response.body = renderEngine(template, renderData, ctx.app.view);
         ctx.response.headers.set("Content-Type", "text/html; charset=utf-8");
       } catch (e) {
         ctx.response.status = 404;

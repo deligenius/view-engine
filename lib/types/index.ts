@@ -12,6 +12,6 @@ export type Adapter = (
   config: ViewConfig,
 ) => void;
 
-export type Engine = (template: string, data: object) => string
+export type Engine = (template: string, data: object, config?: ViewConfig) => string
 
 

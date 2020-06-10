@@ -6,7 +6,7 @@
   ],
   "settings": {
     "[typescript]": {
-      "editor.defaultFormatter": "axetroy.vscode-deno"
+      "editor.defaultFormatter": "denoland.vscode-deno"
     },
     "[typescriptreact]": {
       "editor.defaultFormatter": "axetroy.vscode-deno"
