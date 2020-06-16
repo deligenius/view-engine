@@ -1,5 +1,5 @@
 // app.ts
-import { Application } from "https://deno.land/x/oak/mod.ts";
+import { Application } from "../../deps.ts";
 import {
   viewEngine,
   engineFactory,

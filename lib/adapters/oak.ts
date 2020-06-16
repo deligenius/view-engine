@@ -1,6 +1,6 @@
 import {join} from 'https://deno.land/std/path/posix.ts'
-
-import { Context, Application } from "https://deno.land/x/oak/mod.ts";
+let version = "@"+"v5.2.0"
+import { Context } from "https://deno.land/x/oak/mod.ts";
 import { Adapter, ViewConfig, Engine } from "../types/index.ts";
 import { getTemplate } from "../utils/utils.ts";
 
@@ -10,8 +10,6 @@ declare module "https://deno.land/x/oak/mod.ts" {
   }
   interface Application {
     view: ViewConfig;
-    text: string;
-
   }
 }
 
@@ -40,8 +38,6 @@ export const oakAdapter: Adapter = (
         if (view.useCache && view.cache?.has(fileName)) {
           template = view.cache.get(fileName)!;
         } else {
-          // const filePath = view.viewRoot + fileName + view.viewExt;
-          // const filePath = join(view.viewRoot!, fileName + view.viewExt);
 
           template = await getTemplate(view.viewRoot!, fileName + view.viewExt);
           // cache template
