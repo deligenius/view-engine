@@ -1,5 +1,5 @@
-// @deno-types="https://raw.githubusercontent.com/denjucks/denjucks/master/mod.d.ts"
-import denjucks from "https://deno.land/x/denjucks/mod.js";
+// @deno-types="https://deno.land/x/denjucks/mod.d.ts"
+import denjucks from '../../deps/denjucks-1.1.1/mod.js'
 import { Engine, ViewConfig } from "../types/index.ts";
 
 export const renderDenjuck: Engine = (
