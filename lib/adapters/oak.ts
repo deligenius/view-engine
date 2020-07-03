@@ -6,6 +6,10 @@ declare module "https://deno.land/x/oak/mod.ts" {
   interface Context {
     render: (fileName: string, data?: object) => void;
   }
+
+  interface RouterContext{
+    render: (fileName: string, data?: object) => void;
+  }
   interface Application {
     view: ViewConfig;
   }

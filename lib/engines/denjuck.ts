@@ -1,4 +1,4 @@
-// @deno-types="https://raw.githubusercontent.com/denjucks/denjucks/master/mod.d.ts"
+// @deno-types="https://deno.land/x/denjucks/mod.d.ts"
 import denjucks from "https://deno.land/x/denjucks/mod.js";
 import { Engine, ViewConfig } from "../types/index.ts";
 
