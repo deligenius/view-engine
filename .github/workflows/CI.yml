@@ -24,6 +24,6 @@ jobs:
     - name: Start Deno test
       uses: denolib/setup-deno@v2
       with:
-        deno-version: v1.x
-    - run: deno test -A -r 
+        deno-version: v1.10
+    - run: deno test -A
       
