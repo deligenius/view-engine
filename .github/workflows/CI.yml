@@ -22,7 +22,7 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     - name: Start Deno test
-    - uses: denolib/setup-deno@v2
+      uses: denolib/setup-deno@v2
       with:
         deno-version: v1.x
     - run: deno test -A -r 
