@@ -4,10 +4,7 @@
 
 > A Template View Engine for Deno frameworks
 
-![CI](https://github.com/deligenius/view-engine/workflows/CI/badge.svg)
 [![tag](https://img.shields.io/github/tag/deligenius/view-engine.svg)](https://github.com/gjuoun/view-engine)
-[![license](https://img.shields.io/github/license/deligenius/view-engine.svg)](https://github.com/gjuoun/view-engine)
-[![tag](https://img.shields.io/badge/deno-v1.0.2-green.svg)](https://github.com/denoland/deno)
 
 ### Features:
 
