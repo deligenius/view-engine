@@ -77,6 +77,38 @@ Deno.test({
 });
 
 Deno.test({
+  name: green("Testing Oak - Ejs include"),
+  async fn() {
+    const controller = new AbortController();
+    const { signal } = controller;
+    const app = new Application();
+    const ejsEngine = engineFactory.getEjsEngine();
+    app.use(viewEngine(oakAdapter, ejsEngine, {viewRoot: "./view/ejs"}));
+
+    app.use(async (ctx, next) => {
+      if (ctx.request.url.pathname === "/ejs") {
+        ctx.render("index.ejs", { data: { name: "John" } });
+      }
+    });
+    setTimeout(async () => {
+      const actual = await fetch("http://localhost:8000/ejs").then(
+        (res) => res.text()
+      );
+      const expect = `<h3>User Info</h3>Hobbies of John`;
+
+      assertEquals(
+        actual.replace(removeRegex, ""),
+        expect.replace(removeRegex, ""),
+      );
+      controller.abort();
+    }, 500);
+
+    await app.listen({ port: 8000, signal });
+  },
+});
+
+
+Deno.test({
   name: green("Testing Oak - HandlebarsEngine"),
   async fn() {
     const controller = new AbortController();
@@ -140,27 +172,5 @@ Deno.test({
   },
 });
 
-// Deno.test({
-//   name: green("Testing Oak - ReactEngine - Function Component"),
-//   async fn() {
-//     const controller = new AbortController();
-//     const { signal } = controller
-//     const app = new Application();
-//     const reactEngine = engineFactory.getReactEngine();
-//     app.use(viewEngine(oakAdapter, reactEngine));
 
-//     app.use(async (ctx, next) => {
-//       if (ctx.request.url.pathname === '/react/fc') {
-//         await ctx.render("./view/index_function.tsx", { data: { name: "John" } });
-//       }
-//     });
-//     setTimeout(async () => {
-//       const actual = await fetch('http://localhost:8000/react/fc').then(res => res.text())
-//       const expect = `<divdata-reactroot=\"\"><h1>Hello,world!</h1><h3>John</h3></div>`
-//       assertEquals(actual.replace(removeRegex, ""), expect.replace(removeRegex, ""))
-//       controller.abort()
-//     }, 500)
 
-//     await app.listen({ port: 8000, signal });
-//   },
-// })

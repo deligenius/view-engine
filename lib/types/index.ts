@@ -1,4 +1,3 @@
-
 export interface ViewConfig {
   viewRoot?: string;
   viewExt?: string;
@@ -12,6 +11,9 @@ export type Adapter = (
   config: ViewConfig,
 ) => void;
 
-export type Engine = (template: string, data: object, config?: ViewConfig) => string
-
-
+export type Engine = (
+  template: string,
+  data: object,
+  config?: ViewConfig,
+  filename?:string
+) => string;

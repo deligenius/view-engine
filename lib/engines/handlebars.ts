@@ -6,7 +6,9 @@ const hb = <any> handlebars;
 export const renderHandlebars: Engine = (
   template: string,
   data: object = {},
-  config: ViewConfig = {}
+  config: ViewConfig = {},
+  filename: string = "",
+
 ): string => {
   return hb.compile(template)(data);
 };

@@ -1,5 +1,3 @@
-import {join} from 'https://deno.land/std/path/posix.ts'
-let version = "@"+"v5.2.0"
 import { Context } from "https://deno.land/x/oak/mod.ts";
 import { Adapter, ViewConfig, Engine } from "../types/index.ts";
 import { getTemplate } from "../utils/utils.ts";
@@ -29,30 +27,36 @@ export const oakAdapter: Adapter = (
       };
     }
 
-    ctx.render = async function (fileName: string, data?: object) {
+    ctx.render = async function (file: string, data?: object) {
       try {
         let template: any;
         const view = ctx.app.view;
+        const filename = file + view.viewExt;
 
         // use cache
-        if (view.useCache && view.cache?.has(fileName)) {
-          template = view.cache.get(fileName)!;
+        if (view.useCache && view.cache?.has(file)) {
+          template = view.cache.get(file)!;
         } else {
-
-          template = await getTemplate(view.viewRoot!, fileName + view.viewExt);
+          template = await getTemplate(view.viewRoot!, filename);
           // cache template
           if (view.useCache) {
-            view.cache?.set(fileName, template);
+            view.cache?.set(file, template);
           }
         }
 
-        const renderData = { ctx: { state: ctx.state }, ...data };
+        // remove state
+        // const renderData = { ctx: { state: ctx.state }, ...data };
 
-        ctx.response.body = renderEngine(template, renderData, ctx.app.view);
+        ctx.response.body = await renderEngine(
+          template,
+          data ?? {},
+          ctx.app.view,
+          filename,
+        );
         ctx.response.headers.set("Content-Type", "text/html; charset=utf-8");
       } catch (e) {
         ctx.response.status = 404;
-        console.log(e.message)
+        console.log(e.message);
       }
     };
 

@@ -5,10 +5,11 @@ import { Engine, ViewConfig } from "../types/index.ts";
 export const renderDenjuck: Engine = (
   template: string,
   data: object = {},
-  config: ViewConfig = {}
+  config: ViewConfig = {},
+  filename: string = "",
 ) => {
-  if(config.viewRoot){
-    denjucks.configure(config.viewRoot)
+  if (config.viewRoot) {
+    denjucks.configure(config.viewRoot);
   }
 
   return denjucks.renderString(template, data);
