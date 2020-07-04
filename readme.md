@@ -285,3 +285,4 @@ console.log(rendered);
 ### Credit
 
 Original work by [@gjuoun](https://github.com/gjuoun/)
+
