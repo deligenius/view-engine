@@ -5,8 +5,6 @@
 > A Template View Engine for Deno frameworks
 
 [![tag](https://img.shields.io/github/tag/deligenius/view-engine.svg)](https://github.com/gjuoun/view-engine)
-[![license](https://img.shields.io/github/license/deligenius/view-engine.svg)](https://github.com/gjuoun/view-engine)
-[![tag](https://img.shields.io/badge/deno-v1.0.2-green.svg)](https://github.com/denoland/deno)
 
 ### Features:
 
@@ -97,12 +95,12 @@ Suppose you have a folder like this:
 
 ```ts
 // app.ts
-import { Application } from "https://deno.land/x/oak/mod.ts";
+import { Application } from "https://deno.land/x/oak@v5.3.1/mod.ts";
 import {
   viewEngine,
   engineFactory,
   adapterFactory,
-} from "https://deno.land/x/view_engine/mod.ts";
+} from "https://deno.land/x/view_engine@v1.2.0/mod.ts";
 
 const denjuckEngine = engineFactory.getDenjuckEngine();
 const oakAdapter = adapterFactory.getOakAdapter();
@@ -142,12 +140,12 @@ Suppose you have a folder like this:
 ```
 ```ts
 // app.ts
-import { Application } from "https://deno.land/x/oak/mod.ts";
+import { Application } from "https://deno.land/x/oak@v5.3.1/mod.ts";
 import {
   viewEngine,
   engineFactory,
   adapterFactory,
-} from "https://deno.land/x/view_engine/mod.ts";
+} from "https://deno.land/x/view_engine@v1.2.0/mod.ts";
 
 const ejsEngine = engineFactory.getEjsEngine();
 const oakAdapter = adapterFactory.getOakAdapter();
@@ -190,12 +188,12 @@ Suppose you have a folder like this:
 
 ```ts
 // app.ts
-import { Application } from "https://deno.land/x/oak/mod.ts";
+import { Application } from "https://deno.land/x/oak@v5.3.1/mod.ts";
 import {
   viewEngine,
   engineFactory,
   adapterFactory,
-} from "https://deno.land/x/view_engine/mod.ts";
+} from "https://deno.land/x/view_engine@v1.2.0/mod.ts";
 
 const handlebarsEngine = engineFactory.getHandlebarsEngine();
 const oakAdapter = adapterFactory.getOakAdapter();
@@ -224,12 +222,12 @@ Open any browser, type ```http://localhost:8000``` you should see the result.
 
 ```ts
 // app.ts
-import { Application } from "https://deno.land/x/oak/mod.ts";
+import { Application } from "https://deno.land/x/oak@v5.3.1/mod.ts";
 import {
   viewEngine,
   engineFactory,
   adapterFactory,
-} from "https://deno.land/x/view_engine/mod.ts";
+} from "https://deno.land/x/view_engine@v1.2.0/mod.ts";
 
 const handlebarsEngine = engineFactory.getHandlebarsEngine();
 const oakAdapter = adapterFactory.getOakAdapter();
@@ -256,7 +254,7 @@ Open any browser, type ```http://localhost:8000``` you should see the result.
 
 ```ts
 // app.ts
-import { engineFactory } from "https://deno.land/x/view_engine/mod.ts";
+import { engineFactory } from "https://deno.land/x/view_engine@v1.2.0/mod.ts";
 
 const handlebarsEngine = engineFactory.getHandlebarsEngine();
 
