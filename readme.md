@@ -28,7 +28,6 @@
 
 - Examples
   - Use View Engine with Oak framework
-    - [Render Denjucks template at ./index.html](#use-oak-to-render-denjucks-template-at-indexhtml)
     - [Render Ejs template at ./index.ejs](#use-oak-to-render-ejs-template-at-indexejs)
     - [Render Handlebars template at ./view/index.handlebars](#oak-render-handlebars-template-at-viewindexhandlebars)
     - [Asychronous fetching remote template](#asychronous-fetching-remote-template-viewconfigusecache--true-is-recommended)
@@ -62,7 +61,6 @@ To get a Engine, use `engineFactory.get[EngineName]`
 ```ts
 const ejsEngine = engineFactory.getEjsEngine();
 const handlebarsEngine = engineFactory.getHandlebarsEngine();
-const denjuckEngine = engineFactory.getDenjuckEngine();
 ```
 
 #### ⚙ViewConfig
@@ -78,51 +76,6 @@ const viewConfig: ViewConfig = {
 ## [🔝](#table-of-contents)
 
 ### Examples
-
-#### Use [Oak](https://github.com/oakserver/oak) to render [Denjucks template](https://github.com/denjucks/denjucks) at `./index.html`
-
-Suppose you have a folder like this: 
-```
-/index.html
-/app.ts
-```
-```html
-<!--index.html-->
-<body>
-  <h1>{{data.name}}</h1>
-</body>
-```
-
-```ts
-// app.ts
-import { Application } from "https://deno.land/x/oak@v6.0.0/mod.ts";
-import {
-  viewEngine,
-  engineFactory,
-  adapterFactory,
-} from "https://deno.land/x/view_engine@v1.3.0/mod.ts";
-
-const denjuckEngine = engineFactory.getDenjuckEngine();
-const oakAdapter = adapterFactory.getOakAdapter();
-
-const app = new Application();
-
-app.use(viewEngine(oakAdapter, denjuckEngine));
-
-app.use(async (ctx, next) => {
-  ctx.render("index.html", { data: { name: "John" } });
-});
-
-await app.listen({ port: 8000 });
-```
-Then run
-```ts
-> deno run --allow-net --allow-read ./app.ts
-```
-Open any browser, type ```http://localhost:8000``` you should see the result.
-
-
-## [🔝](#table-of-contents)
 
 #### Use [Oak](https://github.com/oakserver/oak) to render [Ejs template](https://ejs.co/) at `./index.ejs`
 
@@ -140,12 +93,12 @@ Suppose you have a folder like this:
 ```
 ```ts
 // app.ts
-import { Application } from "https://deno.land/x/oak@v6.0.0/mod.ts";
+import { Application } from "https://deno.land/x/oak@v6.2.0/mod.ts";
 import {
   viewEngine,
   engineFactory,
   adapterFactory,
-} from "https://deno.land/x/view_engine@v1.3.0/mod.ts";
+} from "https://deno.land/x/view_engine@v1.4.0/mod.ts";
 
 const ejsEngine = engineFactory.getEjsEngine();
 const oakAdapter = adapterFactory.getOakAdapter();
@@ -188,12 +141,12 @@ Suppose you have a folder like this:
 
 ```ts
 // app.ts
-import { Application } from "https://deno.land/x/oak@v6.0.0/mod.ts";
+import { Application } from "https://deno.land/x/oak@v6.2.0/mod.ts";
 import {
   viewEngine,
   engineFactory,
   adapterFactory,
-} from "https://deno.land/x/view_engine@v1.3.0/mod.ts";
+} from "https://deno.land/x/view_engine@v1.4.0/mod.ts";
 
 const handlebarsEngine = engineFactory.getHandlebarsEngine();
 const oakAdapter = adapterFactory.getOakAdapter();
@@ -222,12 +175,12 @@ Open any browser, type ```http://localhost:8000``` you should see the result.
 
 ```ts
 // app.ts
-import { Application } from "https://deno.land/x/oak@v6.0.0/mod.ts";
+import { Application } from "https://deno.land/x/oak@v6.2.0/mod.ts";
 import {
   viewEngine,
   engineFactory,
   adapterFactory,
-} from "https://deno.land/x/view_engine@v1.3.0/mod.ts";
+} from "https://deno.land/x/view_engine@v1.4.0/mod.ts";
 
 const handlebarsEngine = engineFactory.getHandlebarsEngine();
 const oakAdapter = adapterFactory.getOakAdapter();
@@ -254,7 +207,7 @@ Open any browser, type ```http://localhost:8000``` you should see the result.
 
 ```ts
 // app.ts
-import { engineFactory } from "https://deno.land/x/view_engine@v1.3.0/mod.ts";
+import { engineFactory } from "https://deno.land/x/view_engine@v1.4.0/mod.ts";
 
 const handlebarsEngine = engineFactory.getHandlebarsEngine();
 
