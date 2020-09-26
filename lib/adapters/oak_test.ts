@@ -13,38 +13,38 @@ const oakAdapter = adapterFactory.getOakAdapter();
 
 const removeRegex = /\r?\n|\r|\s/g;
 
-Deno.test({
-  name: green("Testing Oak - DenjuckEngine"),
-  async fn() {
-    const controller = new AbortController();
-    const { signal } = controller;
+// Deno.test({
+//   name: green("Testing Oak - DenjuckEngine"),
+//   async fn() {
+//     const controller = new AbortController();
+//     const { signal } = controller;
 
-    const app = new Application();
-    const denjuckEngine = engineFactory.getDenjuckEngine();
+//     const app = new Application();
+//     const denjuckEngine = engineFactory.getDenjuckEngine();
 
-    app.use(viewEngine(oakAdapter, denjuckEngine));
+//     app.use(viewEngine(oakAdapter, denjuckEngine));
 
-    app.use(async (ctx, next) => {
-      if (ctx.request.url.pathname === "/denjuck") {
-        ctx.render("./view/index.html", { data: { name: "John" } });
-      }
-    });
+//     app.use(async (ctx, next) => {
+//       if (ctx.request.url.pathname === "/denjuck") {
+//         ctx.render("./view/index.html", { data: { name: "John" } });
+//       }
+//     });
 
-    setTimeout(async () => {
-      const actual = await fetch("http://localhost:8000/denjuck").then((res) =>
-        res.text()
-      );
-      const expect = `<!--index.html--><body><h1>John</h1></body>`;
-      assertEquals(
-        actual.replace(removeRegex, ""),
-        expect.replace(removeRegex, ""),
-      );
-      controller.abort();
-    }, 500);
+//     setTimeout(async () => {
+//       const actual = await fetch("http://localhost:8000/denjuck").then((res) =>
+//         res.text()
+//       );
+//       const expect = `<!--index.html--><body><h1>John</h1></body>`;
+//       assertEquals(
+//         actual.replace(removeRegex, ""),
+//         expect.replace(removeRegex, ""),
+//       );
+//       controller.abort();
+//     }, 500);
 
-    await app.listen({ port: 8000, signal });
-  },
-});
+//     await app.listen({ port: 8000, signal });
+//   },
+// });
 
 Deno.test({
   name: green("Testing Oak - EjsEngine"),
