@@ -11,7 +11,7 @@
 // };
 
 import { ejs, EjsOptions } from "./ejs/mod.ts";
-import { Engine, ViewConfig } from "../types/index.ts";
+import type { Engine, ViewConfig } from "../types/index.ts";
 import { path } from "../../deps.ts";
 
 export const renderEjs: Engine = (
