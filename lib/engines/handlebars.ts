@@ -1,5 +1,5 @@
 import handlebars from "https://dev.jspm.io/handlebars@4.7.6";
-import { Engine,ViewConfig } from "../types/index.ts";
+import type { Engine,ViewConfig } from "../types/index.ts";
 
 const hb = <any> handlebars;
 
