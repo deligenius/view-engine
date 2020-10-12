@@ -1,4 +1,4 @@
-import { Adapter, Engine, ViewConfig } from "./types/index.ts";
+import type { Adapter, Engine, ViewConfig } from "./types/index.ts";
 
 
 export function viewEngine(
