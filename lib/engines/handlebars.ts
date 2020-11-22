@@ -1,7 +1,7 @@
 import handlebars from "https://dev.jspm.io/handlebars@4.7.6";
 import type { Engine,ViewConfig } from "../types/index.ts";
 
-const hb = <any> handlebars;
+export const hbs = <any> handlebars;
 
 export const renderHandlebars: Engine = (
   template: string,
@@ -10,5 +10,5 @@ export const renderHandlebars: Engine = (
   filename: string = "",
 
 ): string => {
-  return hb.compile(template)(data);
+  return hbs.compile(template)(data);
 };
