@@ -98,7 +98,7 @@ import {
   viewEngine,
   engineFactory,
   adapterFactory,
-} from "https://deno.land/x/view_engine@v1.4.2/mod.ts";
+} from "https://deno.land/x/view_engine@v1.4.3/mod.ts";
 
 const ejsEngine = engineFactory.getEjsEngine();
 const oakAdapter = adapterFactory.getOakAdapter();
@@ -146,7 +146,7 @@ import {
   viewEngine,
   engineFactory,
   adapterFactory,
-} from "https://deno.land/x/view_engine@v1.4.2/mod.ts";
+} from "https://deno.land/x/view_engine@v1.4.3/mod.ts";
 
 const handlebarsEngine = engineFactory.getHandlebarsEngine();
 const oakAdapter = adapterFactory.getOakAdapter();
@@ -180,7 +180,7 @@ import {
   viewEngine,
   engineFactory,
   adapterFactory,
-} from "https://deno.land/x/view_engine@v1.4.2/mod.ts";
+} from "https://deno.land/x/view_engine@v1.4.3/mod.ts";
 
 const handlebarsEngine = engineFactory.getHandlebarsEngine();
 const oakAdapter = adapterFactory.getOakAdapter();
@@ -207,7 +207,7 @@ Open any browser, type ```http://localhost:8000``` you should see the result.
 
 ```ts
 // app.ts
-import { engineFactory } from "https://deno.land/x/view_engine@v1.4.2/mod.ts";
+import { engineFactory } from "https://deno.land/x/view_engine@v1.4.3/mod.ts";
 
 const handlebarsEngine = engineFactory.getHandlebarsEngine();
 
