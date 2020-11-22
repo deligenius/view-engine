@@ -98,7 +98,7 @@ import {
   viewEngine,
   engineFactory,
   adapterFactory,
-} from "https://deno.land/x/view_engine@v1.4.3/mod.ts";
+} from "https://deno.land/x/view_engine@v1.4.4/mod.ts";
 
 const ejsEngine = engineFactory.getEjsEngine();
 const oakAdapter = adapterFactory.getOakAdapter();
@@ -146,7 +146,7 @@ import {
   viewEngine,
   engineFactory,
   adapterFactory,
-} from "https://deno.land/x/view_engine@v1.4.3/mod.ts";
+} from "https://deno.land/x/view_engine@v1.4.4/mod.ts";
 
 const handlebarsEngine = engineFactory.getHandlebarsEngine();
 const oakAdapter = adapterFactory.getOakAdapter();
@@ -180,7 +180,7 @@ import {
   viewEngine,
   engineFactory,
   adapterFactory,
-} from "https://deno.land/x/view_engine@v1.4.3/mod.ts";
+} from "https://deno.land/x/view_engine@v1.4.4/mod.ts";
 
 const handlebarsEngine = engineFactory.getHandlebarsEngine();
 const oakAdapter = adapterFactory.getOakAdapter();
@@ -207,7 +207,7 @@ Open any browser, type ```http://localhost:8000``` you should see the result.
 
 ```ts
 // app.ts
-import { engineFactory } from "https://deno.land/x/view_engine@v1.4.3/mod.ts";
+import { engineFactory } from "https://deno.land/x/view_engine@v1.4.4/mod.ts";
 
 const handlebarsEngine = engineFactory.getHandlebarsEngine();
 
@@ -225,11 +225,50 @@ console.log(rendered);
  */
 ```
 
+### Use `Handlebars.registerHelper()`
+
+```ts
+// app.ts
+import { Application } from "https://deno.land/x/oak@v6.2.0/mod.ts";
+import {
+  viewEngine,
+  engineFactory,
+  adapterFactory,  hbs
+} from "https://deno.land/x/view_engine@v1.4.4/mod.ts";
+
+const handlebarsEngine = engineFactory.getHandlebarsEngine();
+const oakAdapter = adapterFactory.getOakAdapter();
+
+hbs.registerHelper('loud', (str:string) => {
+  return str.toUpperCase()
+})
+
+const app = new Application();
+
+app.use(
+  viewEngine(oakAdapter, handlebarsEngine, {
+    viewRoot: "./view",
+    viewExt: ".handlebars",
+  })
+);
+
+app.use(async (ctx, next) => {
+  ctx.render("index", { data: { name: "John" } });
+});
+
+await app.listen({ port: 8000 });
+```
+
+Then you are able to include this in your handlebar template:
+
+```hbs
+{{loud "all in upper case"}}
+```
+
 ## [🔝](#table-of-contents)
 
 ### Roadmap
 
-- [x] Support [denjucks](https://github.com/denjucks/denjucks)
 - [x] Support [ejs](https://github.com/mde/ejs)
 - [x] Support [Handlebars](https://github.com/handlebars-lang/handlebars.js)
 - [x] Cache strategy
