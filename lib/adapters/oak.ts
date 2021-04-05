@@ -1,8 +1,8 @@
-import type { Context } from "https://deno.land/x/oak@v6.2.0/mod.ts";
+import type { Context } from "https://deno.land/x/oak@v6.5.0/mod.ts";
 import type { Adapter, ViewConfig, Engine } from "../types/index.ts";
 import { getTemplate } from "../utils/utils.ts";
 
-declare module "https://deno.land/x/oak@v6.2.0/mod.ts" {
+declare module "https://deno.land/x/oak@v6.5.0/mod.ts" {
   interface Context {
     render: (fileName: string, data?: object) => void;
   }

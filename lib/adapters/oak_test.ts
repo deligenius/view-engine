@@ -138,39 +138,39 @@ Deno.test({
   },
 });
 
-Deno.test({
-  name: green("Testing Oak - remote HandlebarsEngine"),
-  async fn() {
-    const controller = new AbortController();
-    const { signal } = controller;
-    const app = new Application();
-    const handlebarsEngine = engineFactory.getHandlebarsEngine();
-    app.use(viewEngine(oakAdapter, handlebarsEngine));
+// Deno.test({
+//   name: green("Testing Oak - remote HandlebarsEngine"),
+//   async fn() {
+//     const controller = new AbortController();
+//     const { signal } = controller;
+//     const app = new Application();
+//     const handlebarsEngine = engineFactory.getHandlebarsEngine();
+//     app.use(viewEngine(oakAdapter, handlebarsEngine));
 
-    app.use(async (ctx, next) => {
-      if (ctx.request.url.pathname === "/handlebars") {
-        const remoteTemplate =
-          `https://deno.land/x/view_engine/view/index.handlebars`;
-        // use 'await' for fetching remote template
-        await ctx.render(remoteTemplate, { data: { name: "John" } });
-      }
-    });
-    setTimeout(async () => {
-      const actual = await fetch("http://localhost:8000/handlebars").then(
-        (res) => res.text()
-      );
-      const expect = `<!--index.handlebars--><body><h1>John</h1></body>`;
+//     app.use(async (ctx, next) => {
+//       if (ctx.request.url.pathname === "/handlebars") {
+//         const remoteTemplate =
+//           `https://deno.land/x/view_engine/view/index.handlebars`;
+//         // use 'await' for fetching remote template
+//         await ctx.render(remoteTemplate, { data: { name: "John" } });
+//       }
+//     });
+//     setTimeout(async () => {
+//       const actual = await fetch("http://localhost:8000/handlebars").then(
+//         (res) => res.text()
+//       );
+//       const expect = `<!--index.handlebars--><body><h1>John</h1></body>`;
 
-      assertEquals(
-        actual.replace(removeRegex, ""),
-        expect.replace(removeRegex, ""),
-      );
-      controller.abort();
-    }, 500);
+//       assertEquals(
+//         actual.replace(removeRegex, ""),
+//         expect.replace(removeRegex, ""),
+//       );
+//       controller.abort();
+//     }, 500);
 
-    await app.listen({ port: 8000, signal });
-  },
-});
+//     await app.listen({ port: 8000, signal });
+//   },
+// });
 
 
 
