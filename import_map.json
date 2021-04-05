@@ -1,0 +1,5 @@
+{
+  "imports": {
+     "eta/": "https://deno.land/x/eta@v1.12.1/"
+  }
+}
