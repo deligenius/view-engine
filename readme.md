@@ -93,7 +93,7 @@ Suppose you have a folder like this:
 ```
 ```ts
 // app.ts
-import { Application } from "https://deno.land/x/oak@v6.5.0/mod.ts";
+import { Application } from "https://deno.land/x/oak@v7.5.0/mod.ts";
 import {
   viewEngine,
   engineFactory,
@@ -141,7 +141,7 @@ Suppose you have a folder like this:
 
 ```ts
 // app.ts
-import { Application } from "https://deno.land/x/oak@v6.5.0/mod.ts";
+import { Application } from "https://deno.land/x/oak@v7.5.0/mod.ts";
 import {
   viewEngine,
   engineFactory,
@@ -175,7 +175,7 @@ Open any browser, type ```http://localhost:8000``` you should see the result.
 
 ```ts
 // app.ts
-import { Application } from "https://deno.land/x/oak@v6.5.0/mod.ts";
+import { Application } from "https://deno.land/x/oak@v7.5.0/mod.ts";
 import {
   viewEngine,
   engineFactory,
@@ -229,7 +229,7 @@ console.log(rendered);
 
 ```ts
 // app.ts
-import { Application } from "https://deno.land/x/oak@v6.5.0/mod.ts";
+import { Application } from "https://deno.land/x/oak@v7.5.0/mod.ts";
 import {
   viewEngine,
   engineFactory,
