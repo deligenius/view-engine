@@ -4,6 +4,7 @@ import { blue } from "https://deno.land/std/fmt/colors.ts";
 import { renderDenjuck } from "./denjuck.ts";
 import { renderEjs } from "./ejs.ts";
 import { renderHandlebars } from "./handlebars.ts";
+import { renderPug } from "./pug.ts";
 
 Deno.test({
   name: blue("Testing renderDenjuck()"),
@@ -56,5 +57,16 @@ Deno.test({
     const actual = renderHandlebars(template, { data: { name: "John" } });
     const expect = `<h1>John</h1>`;
     assertEquals(actual, expect);
+  },
+});
+
+Deno.test({
+  name: blue("Testing renderPug()"),
+  fn(): void {
+    const template = `p #{name}'s Pug source code!`;
+
+    const actual = renderPug(template, { name: "Timothy" });
+    const expect = `<p>Timothy's Pug source code!</p>`
+    assertEquals(actual, expect)
   },
 });
