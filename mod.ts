@@ -8,3 +8,4 @@ export { viewEngine } from "./lib/viewEngine.ts";
 export { renderDenjuck } from "./lib/engines/denjuck.ts";
 export { renderEjs } from "./lib/engines/ejs.ts";
 export { renderHandlebars, hbs } from "./lib/engines/handlebars.ts";
+export { renderPug } from "./lib/engines/pug.ts";
