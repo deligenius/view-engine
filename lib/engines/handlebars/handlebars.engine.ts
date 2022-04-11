@@ -1,9 +1,9 @@
 import handlebars from "https://dev.jspm.io/handlebars@4.7.6";
-import type { Engine,ViewConfig } from "../types/index.ts";
+import type { Engine,ViewConfig } from "../../viewEngine.type.ts";
 
 export const hbs = <any> handlebars;
 
-export const renderHandlebars: Engine = (
+export const handlebarsEngine: Engine = (
   template: string,
   data: object = {},
   config: ViewConfig = {},

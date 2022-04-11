@@ -1,9 +1,6 @@
 export interface ViewConfig {
   viewRoot?: string;
-  viewExt?: string;
-  useCache?: boolean;
   viewEngine?: Engine | undefined;
-  cache?: Map<string, string>;
 }
 
 export type Adapter = (
