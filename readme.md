@@ -77,7 +77,7 @@ const viewConfig: ViewConfig = {
 
 ### Examples
 
-#### Use [Oak](https://github.com/oakserver/oak) to render [Ejs template](https://ejs.co/) at `./index.ejs`
+#### Use [Oak](https://github.com/oakserver/oak) to render [Ejs template](https://ejs.co/) at `./views/index.ejs`
 
 Suppose you have a folder like this: 
 ```
