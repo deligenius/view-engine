@@ -15,7 +15,6 @@
   - Current support [Oak](https://github.com/oakserver/oak)
 - **Local file**⛱ loading
 - **Ashychorous**⚡ remote file fetching (fetching template on the fly )
-- Template **Caching**🔥
 - **Dynamic module import**, uses `await` to load adapters and engines🌈
 
 ### Table of Contents
