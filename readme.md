@@ -50,7 +50,8 @@ viewEngine(
 To get an Adapter, use `adapterFactory.get[AdapterName]`
 
 ```ts
-const oakAdapter = adapterFactory.getOakAdapter();
+import { oakAdapter } from "https://deno.land/x/view_engine@v10.5.1/mod.ts"
+
 ```
 
 #### 🚀Engine
@@ -58,17 +59,14 @@ const oakAdapter = adapterFactory.getOakAdapter();
 To get a Engine, use `engineFactory.get[EngineName]`
 
 ```ts
-const ejsEngine = engineFactory.getEjsEngine();
-const handlebarsEngine = engineFactory.getHandlebarsEngine();
+import { ejsEngine, denjuckEngine, handlebarsEngine } from "https://deno.land/x/view_engine@v10.5.1/mod.ts"
 ```
 
 #### ⚙ViewConfig
 
 ```ts
 const viewConfig: ViewConfig = {
-  viewRoot: <string>"./view", // default: "", specify root path, it can be remote address
-  viewExt: <string>".html",  // default: "", specify file extension
-  useCache: <boolean> false // default: false, true if you want to cache template
+  viewRoot: <string>"./views", // default: "", specify the root path, it can be remote address
 }
 ```
 
@@ -80,7 +78,7 @@ const viewConfig: ViewConfig = {
 
 Suppose you have a folder like this: 
 ```
-/index.ejs
+/views/index.ejs
 /app.ts
 ```
 
@@ -92,25 +90,23 @@ Suppose you have a folder like this:
 ```
 ```ts
 // app.ts
-import { Application } from "https://deno.land/x/oak@v6.5.0/mod.ts";
-import {
-  viewEngine,
-  engineFactory,
-  adapterFactory,
-} from "https://deno.land/x/view_engine@v1.5.0/mod.ts";
-
-const ejsEngine = engineFactory.getEjsEngine();
-const oakAdapter = adapterFactory.getOakAdapter();
+import { Application } from "https://deno.land/x/oak@v10.5.1/mod.ts";
+import { viewEngine, ejsEngine, oakAdapter } from "https://deno.land/x/view_engine@v10.5.1/mod.ts"
 
 const app = new Application();
 
-app.use(viewEngine(oakAdapter, ejsEngine));
+app.use(
+  viewEngine(oakAdapter, ejsEngine, {
+    viewRoot: "./views/ejs",
+  })
+);
 
 app.use(async (ctx, next) => {
   ctx.render("index.ejs", { data: { name: "John" } });
 });
 
 await app.listen({ port: 8000 });
+
 ```
 Then run
 ```ts
@@ -121,150 +117,6 @@ Open any browser, type ```http://localhost:8000``` you should see the result.
 
 ## [🔝](#table-of-contents)
 
-#### [Oak](https://github.com/oakserver/oak) render [Handlebars template](https://handlebarsjs.com/) at `./view/index.handlebars`
-
-Suppose you have a folder like this:
-```
-/view/index.handlebars
-/app.ts
-```
-
-```html
-<!--/view/index.handlebars-->
-<body>
-  <div>
-    {{data.name}}
-  </div>
-</body>
-```
-
-```ts
-// app.ts
-import { Application } from "https://deno.land/x/oak@v6.5.0/mod.ts";
-import {
-  viewEngine,
-  engineFactory,
-  adapterFactory,
-} from "https://deno.land/x/view_engine@v1.5.0/mod.ts";
-
-const handlebarsEngine = engineFactory.getHandlebarsEngine();
-const oakAdapter = adapterFactory.getOakAdapter();
-
-const app = new Application();
-
-app.use(
-  viewEngine(oakAdapter, handlebarsEngine, {
-    viewRoot: "./view",
-    viewExt: ".handlebars",
-  })
-);
-
-app.use(async (ctx, next) => {
-  ctx.render("index", { data: { name: "John" } });
-});
-
-await app.listen({ port: 8000 });
-```
-Open any browser, type ```http://localhost:8000``` you should see the result.
-
-
-## [🔝](#table-of-contents)
-
-#### Asychronous fetching remote template, `viewConfig.useCache = true` is recommended
-
-```ts
-// app.ts
-import { Application } from "https://deno.land/x/oak@v6.5.0/mod.ts";
-import {
-  viewEngine,
-  engineFactory,
-  adapterFactory,
-} from "https://deno.land/x/view_engine@v1.5.0/mod.ts";
-
-const handlebarsEngine = engineFactory.getHandlebarsEngine();
-const oakAdapter = adapterFactory.getOakAdapter();
-
-const app = new Application();
-
-app.use(viewEngine(oakAdapter, handlebarsEngine, { useCache: true }));
-
-app.use(async (ctx, next) => {
-  const remoteTemplate = `https://deno.land/x/view_engine/view/index.handlebars`;
-
-  // use 'await' for fetching remote template
-  await ctx.render(remoteTemplate, { data: { name: "John" } });
-});
-
-await app.listen({ port: 8000 });
-```
-Open any browser, type ```http://localhost:8000``` you should see the result.
-
-
-## [🔝](#table-of-contents)
-
-### Use standalone handlebar engine
-
-```ts
-// app.ts
-import { engineFactory } from "https://deno.land/x/view_engine@v1.5.0/mod.ts";
-
-const handlebarsEngine = engineFactory.getHandlebarsEngine();
-
-const template = `
-<body>
-  My name is {{data.name}}
-</body>`;
-
-const rendered = handlebarsEngine(template, { data: { name: "John" } });
-console.log(rendered);
-/*
-<body>
-  My name is John
-</body>
- */
-```
-
-### Use `Handlebars.registerHelper()`
-
-```ts
-// app.ts
-import { Application } from "https://deno.land/x/oak@v6.5.0/mod.ts";
-import {
-  viewEngine,
-  engineFactory,
-  adapterFactory,  hbs
-} from "https://deno.land/x/view_engine@v1.5.0/mod.ts";
-
-const handlebarsEngine = engineFactory.getHandlebarsEngine();
-const oakAdapter = adapterFactory.getOakAdapter();
-
-hbs.registerHelper('loud', (str:string) => {
-  return str.toUpperCase()
-})
-
-const app = new Application();
-
-app.use(
-  viewEngine(oakAdapter, handlebarsEngine, {
-    viewRoot: "./view",
-    viewExt: ".handlebars",
-  })
-);
-
-app.use(async (ctx, next) => {
-  ctx.render("index", { data: { name: "John" } });
-});
-
-await app.listen({ port: 8000 });
-```
-
-Then you are able to include this in your handlebar template:
-
-```hbs
-{{loud "all in upper case"}}
-```
-
-## [🔝](#table-of-contents)
 
 ### Roadmap
 
