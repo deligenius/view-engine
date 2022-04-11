@@ -1,10 +1,15 @@
-export type { Engine, Adapter, ViewConfig } from "./lib/types/index.ts"
+//! engines
+export { ejsEngine } from "./lib/engines/ejs/ejs.engine.ts";
+export { denjuckEngine } from "./lib/engines/denjuck/denjuck.engine.ts";
+export { handlebarsEngine } from "./lib/engines/handlebars/handlebars.engine.ts";
 
-export { engineFactory } from "./lib/engineFactory.ts";
-export { adapterFactory } from "./lib/adapterFactory.ts";
+//! type
+export type { Engine, Adapter, ViewConfig } from "./lib/viewEngine.type.ts"
+
+
+//! adapters
+export { oakAdapter } from "./lib/adapters/oak/oak.adapter.ts";
+
+//! viewEngine entry
 export { viewEngine } from "./lib/viewEngine.ts";
 
-
-export { renderDenjuck } from "./lib/engines/denjuck.ts";
-export { renderEjs } from "./lib/engines/ejs.ts";
-export { renderHandlebars, hbs } from "./lib/engines/handlebars.ts";

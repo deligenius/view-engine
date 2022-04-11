@@ -1,12 +1,12 @@
-import { ejs, EjsOptions } from "./ejs/mod.ts";
-import type { Engine, ViewConfig } from "../types/index.ts";
-import { path } from "../../deps.ts";
+import { ejs, EjsOptions } from "./lib/mod.ts";
+import { path } from "../../../deps.ts";
+import type { Engine, ViewConfig } from "../../viewEngine.type.ts";
 
-export const renderEjs: Engine = (
+export const ejsEngine: Engine = (
   template: string,
   data: object = {},
   config: ViewConfig = {},
-  filename: string = "",
+  filename: string = ""
 ): string => {
   if (config.viewRoot) {
     let option: EjsOptions = { filename: path.join(config.viewRoot, filename) };

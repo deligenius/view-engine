@@ -1,17 +1,9 @@
-import type { Adapter, Engine, ViewConfig } from "./types/index.ts";
-
+import type { Adapter, Engine, ViewConfig } from "./viewEngine.type.ts";
 
 export function viewEngine(
   adapter: Adapter,
   engine: Engine,
-  config: ViewConfig = <ViewConfig> {},
+  config: ViewConfig = <ViewConfig>{}
 ): any {
-  try {
-    if (config.useCache) {
-      config.cache = new Map<string, string>();
-    }
-    return adapter(engine, config);
-  } catch (e) {
-    throw new Error("View-Engine: Wrong Engine or View type");
-  }
+  return adapter(engine, config);
 }
