@@ -100,7 +100,7 @@ const app = new Application();
 
 app.use(
   viewEngine(oakAdapter, ejsEngine, {
-    viewRoot: "./views/ejs",
+    viewRoot: "./views",
   })
 );
 
