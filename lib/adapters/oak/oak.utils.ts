@@ -6,7 +6,5 @@ const urlRegex =
 
 export async function getTemplate(viewRoot: string, fileName: string) {
   const filePath = path.join(viewRoot, fileName);
-  console.log(filePath);
-  
   return Deno.readTextFileSync(filePath);
 }
