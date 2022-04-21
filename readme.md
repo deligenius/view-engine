@@ -66,7 +66,7 @@ const viewConfig: ViewConfig = {
 
 ### Examples
 
-#### Use [Oak](https://github.com/oakserver/oak) to render `eta` template at `./views/index.ejs`
+#### Use [Oak](https://github.com/oakserver/oak) to render `eta` template at `./views/eta/index.eta`
 
 Suppose you have a folder like this: 
 ```
