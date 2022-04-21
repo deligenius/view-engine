@@ -7,11 +7,20 @@ export const ejsEngine: Engine = (
   data: object = {},
   config: ViewConfig = {},
   filename: string = ""
-): string => {
-  if (config.viewRoot) {
-    let option: EjsOptions = { filename: path.join(config.viewRoot, filename) };
-    return ejs.render(template, data, option) as string;
-  } else {
-    return ejs.render(template, data, { filename }) as string;
-  }
+) => {
+  return new Promise<string>((resolve, reject) => {
+    try {
+      if (config.viewRoot) {
+        let option: EjsOptions = { filename: path.join(config.viewRoot, filename) };
+        const result =  ejs.render(template, data, option) as string;
+        resolve(result);
+      } else {
+        const result =  ejs.render(template, data, { filename }) as string;
+        resolve(result);
+      }
+    }
+    catch (e) {
+      reject(e);
+    }
+  });
 };

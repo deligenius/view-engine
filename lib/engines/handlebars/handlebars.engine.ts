@@ -9,6 +9,14 @@ export const handlebarsEngine: Engine = (
   config: ViewConfig = {},
   filename: string = "",
 
-): string => {
-  return hbs.compile(template)(data);
+) => {
+  return new Promise<string>((resolve, reject) => {
+    try {
+      const result = hbs.compile(template)(data) as string;
+      resolve(result);
+    } catch (e) {
+      reject(e);
+    }
+  });
+
 };

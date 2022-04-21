@@ -13,4 +13,4 @@ export type Engine = (
   data: object,
   config?: ViewConfig,
   filename?:string
-) => string;
+) => Promise<string>;

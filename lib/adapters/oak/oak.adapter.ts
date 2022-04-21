@@ -51,12 +51,16 @@ export const oakAdapter: Adapter = (
         let template = await getTemplate(viewConfig.viewRoot!, fileName);
 
         ctx.response.headers.set("Content-Type", "text/html; charset=utf-8");
-        ctx.response.body = await renderEngine(
-          template,
-          data ?? {},
-          ctx.app.viewConcig,
-          fileName
-        );
+        
+        ctx.response.body = async () => {
+          return renderEngine(
+            template,
+            data ?? {},
+            ctx.app.viewConcig,
+            fileName
+          );
+        }
+
       } catch (e) {
         ctx.response.status = 404;
         console.error("View-Engine: ", e.message);
