@@ -1,7 +1,7 @@
-import { dejs } from "../../../deps.ts";
+import { eta } from "../../../deps.ts";
 import type { Engine, ViewConfig } from "../../viewEngine.type.ts";
 
-export const dejsEngine: Engine = async (
+export const etaEngine: Engine = async (
   template: string,
   data: object = {},
   config: ViewConfig = {},
@@ -10,7 +10,7 @@ export const dejsEngine: Engine = async (
 
   return new Promise<string>(async (resolve, reject) => {
     try{
-      const result = await dejs.renderToString(template, data) 
+      const result = await eta.render( template, data) as string
       resolve(result)
     }catch(e){
       reject(e)
