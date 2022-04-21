@@ -8,9 +8,18 @@ export const denjuckEngine: Engine = (
   config: ViewConfig = {},
   filename: string = "",
 ) => {
+
   if (config.viewRoot) {
     denjucks.configure(config.viewRoot);
   }
 
-  return denjucks.renderString(template, data);
+  return new Promise<string>((resolve, reject) => {
+    try {
+      const result = denjucks.render(template, data) as string;
+      resolve(result);
+    } catch (e) {
+      reject(e);
+    }
+  });
+
 };

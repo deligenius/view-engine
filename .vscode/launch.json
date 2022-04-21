@@ -10,8 +10,7 @@
       "request": "launch",
       "cwd": "${workspaceFolder}",
       "runtimeExecutable": "deno",
-      "runtimeArgs": ["run", "-A", "--inspect-brk"],
-      "args": ["${relativeFile}"],
+      "runtimeArgs": ["run", "--inspect-brk", "-A", "./src/app.ts"],
       "port": 9229,
       "outputCapture": "std"
     },
@@ -21,9 +20,22 @@
       "request": "launch",
       "cwd": "${workspaceFolder}",
       "runtimeExecutable": "deno",
-      "runtimeArgs": ["test", "-A", "--inspect-brk"],
+      "runtimeArgs": [
+        "test",
+        "-A",
+        "--inspect-brk"
+      ],
       "port": 9229,
       "outputCapture": "std"
+    },
+    {
+      "name": "Deno Attach",
+      "port": 9229,
+      "request": "attach",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
     }
   ]
 }
