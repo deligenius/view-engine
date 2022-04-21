@@ -3,19 +3,18 @@ import { Application, green, assertEquals, assert } from "../../../deps.ts";
 import {
   viewEngine,
   oakAdapter,
-  ejsEngine,
-  handlebarsEngine,
+  dejsEngine
 } from "../../../mod.ts";
 
 const removeRegex = /\r?\n|\r|\s/g;
 
 Deno.test({
-  name: green("Testing Oak - EjsEngine"),
+  name: green("Testing Oak - dejsEngine"),
   async fn() {
     const controller = new AbortController();
     const { signal } = controller;
     const app = new Application();
-    app.use(viewEngine(oakAdapter, ejsEngine, { viewRoot: "./views/ejs" }));
+    app.use(viewEngine(oakAdapter, dejsEngine, { viewRoot: "./views/ejs" }));
 
     app.use(async (ctx, next) => {
       ctx.render("index.ejs", { data: { name: "John" } });

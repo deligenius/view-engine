@@ -15,7 +15,7 @@ export const denjuckEngine: Engine = (
 
   return new Promise<string>((resolve, reject) => {
     try {
-      const result = denjucks.render(template, data) as string;
+      const result = denjucks.renderString(template, data) as string;
       resolve(result);
     } catch (e) {
       reject(e);
