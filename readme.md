@@ -28,14 +28,6 @@
   - [🚀Engine](#engine)
   - [⚙ViewConfig](#viewconfig)
 
-- Examples
-  - Use View Engine with Oak framework
-    - [Render Ejs template at ./index.ejs](#use-oak-to-render-ejs-template-at-indexejs)
-    - [Render Handlebars template at ./view/index.handlebars](#oak-render-handlebars-template-at-viewindexhandlebars)
-    - [Asychronous fetching remote template](#asychronous-fetching-remote-template-viewconfigusecache--true-is-recommended)
-
-- [Use standalone engine](#use-standalone-handlebar-engine)
-
 ---
 
 ### Usage
