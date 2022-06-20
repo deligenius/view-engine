@@ -25,7 +25,7 @@ declare module "https://deno.land/x/oak@v10.5.1/mod.ts" {
 
   // add viewConfig to Application interface
   interface Application {
-    viewConcig: ViewConfig;
+    viewConfig: ViewConfig;
   }
 }
 
@@ -36,8 +36,8 @@ export const oakAdapter: Adapter = (
 ) => {
   return async function (ctx: Context, next: Function) {
     // load default view setting
-    if (!ctx.app.viewConcig) {
-      ctx.app.viewConcig = {
+    if (!ctx.app.viewConfig) {
+      ctx.app.viewConfig = {
         viewEngine: config.viewEngine,
         viewRoot: config.viewRoot ?? "./",
       };
@@ -45,7 +45,7 @@ export const oakAdapter: Adapter = (
 
     ctx.render = async (fileName: string, data?: object) =>{
       try {
-        const viewConfig = ctx.app.viewConcig;
+        const viewConfig = ctx.app.viewConfig;
 
         ctx.response.headers.set("Content-Type", "text/html; charset=utf-8");
         
@@ -53,7 +53,7 @@ export const oakAdapter: Adapter = (
           return renderEngine(
             await getTemplate(viewConfig.viewRoot ??"./", fileName),
             data ?? {},
-            ctx.app.viewConcig,
+            ctx.app.viewConfig,
             fileName
           );
         }
