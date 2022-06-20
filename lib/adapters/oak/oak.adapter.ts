@@ -43,18 +43,15 @@ export const oakAdapter: Adapter = (
       };
     }
 
-    ctx.render = async function (fileName: string, data?: object) {
+    ctx.render = async (fileName: string, data?: object) =>{
       try {
         const viewConfig = ctx.app.viewConcig;
-
-        // find template file path, either on internet or in local file system
-        let template = await getTemplate(viewConfig.viewRoot!, fileName);
 
         ctx.response.headers.set("Content-Type", "text/html; charset=utf-8");
         
         ctx.response.body = async () => {
           return renderEngine(
-            template,
+            await getTemplate(viewConfig.viewRoot ??"./", fileName),
             data ?? {},
             ctx.app.viewConcig,
             fileName
