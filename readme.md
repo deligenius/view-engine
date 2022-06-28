@@ -6,7 +6,7 @@
 ## View Engine is now matching the version of Oak
 
 
-[![tag](https://img.shields.io/github/tag/deligenius/view-engine.svg)](https://github.com/gjuoun/view-engine)
+[![tag](https://img.shields.io/github/tag/deligenius/view-engine.svg)](https://github.com/deligenius/view-engine)
 
 ### Features:
 
