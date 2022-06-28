@@ -8,6 +8,10 @@ export const etaEngine: Engine = async (
   filename: string = ""
 ): Promise<string> => {
 
+  if (config.viewRoot) {
+    eta.configure({ views: config.viewRoot });
+  }
+
   return new Promise<string>(async (resolve, reject) => {
     try{
       const result = await eta.render( template, data) as string
