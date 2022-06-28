@@ -44,14 +44,14 @@ viewEngine(
 
 
 ```ts
-import { oakAdapter } from "https://deno.land/x/view_engine@v10.5.1/mod.ts"
+import { oakAdapter } from "https://deno.land/x/view_engine@v10.6.0/mod.ts"
 
 ```
 
 #### 🚀Engine
 
 ```ts
-import { ejsEngine, denjuckEngine, handlebarsEngine } from "https://deno.land/x/view_engine@v10.5.1/mod.ts"
+import { ejsEngine, denjuckEngine, handlebarsEngine } from "https://deno.land/x/view_engine@v10.6.0/mod.ts"
 ```
 
 #### ⚙ViewConfig
