@@ -1,16 +1,16 @@
 import { dejs } from "../../../deps.ts";
 import type { Engine, ViewConfig } from "../../viewEngine.type.ts";
 
-export const dejsEngine: Engine = async (
+export const dejsEngine: Engine = (
   template: string,
   data: object = {},
-  config: ViewConfig = {},
-  filename: string = ""
+  _config: ViewConfig = {},
+  _filename = ""
 ): Promise<string> => {
 
-  return new Promise<string>(async (resolve, reject) => {
+  return new Promise<string>( (resolve, reject) => {
     try{
-      const result = await dejs.renderToString(template, data) 
+      const result = dejs.renderToString(template, data) 
       resolve(result)
     }catch(e){
       reject(e)

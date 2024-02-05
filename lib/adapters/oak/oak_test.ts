@@ -1,5 +1,5 @@
 // app.ts
-import { Application, green, assertEquals, assert } from "../../../deps.ts";
+import { Application, green, assert } from "../../../deps.ts";
 
 import {
   viewEngine,
@@ -7,7 +7,7 @@ import {
   dejsEngine
 } from "../../../mod.ts";
 //import declaration from the oak.adapter.ts file
-const removeRegex = /\r?\n|\r|\s/g;
+// const removeRegex = /\r?\n|\r|\s/g;
 
 Deno.test({
   name: green("Testing Oak - dejsEngine"),
@@ -17,7 +17,7 @@ Deno.test({
     const app = new Application();
     app.use(viewEngine(oakAdapter, dejsEngine, { viewRoot: "./views/ejs" }));
 
-    app.use(async (ctx, next) => {
+    app.use((ctx, _) => {
       ctx.render("index.ejs", { data: { name: "John" } });
     });
     setTimeout(async () => {

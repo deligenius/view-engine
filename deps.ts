@@ -8,7 +8,7 @@ export {
   assert,
 } from "https://deno.land/std@0.214.0/testing/asserts.ts";
 
-export { Application } from "https://deno.land/x/oak@v13.0.0/mod.ts";
+export { Application, Context, type MiddlewareOrMiddlewareObject } from "https://deno.land/x/oak@v13.0.0/mod.ts";
 
 import { Eta } from "npm:eta";
 export const eta = new Eta();

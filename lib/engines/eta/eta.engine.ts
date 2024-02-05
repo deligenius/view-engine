@@ -5,7 +5,7 @@ export const etaEngine: Engine = (
   template: string,
   data: object = {},
   config: ViewConfig = {},
-  filename: string = ""
+  _filename = ""
 ): Promise<string> => {
 
   if (config.viewRoot) {

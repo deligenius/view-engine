@@ -1,7 +1,7 @@
 import { path, pug } from "../../../deps.ts";
 import { Engine, ViewConfig } from "../../viewEngine.type.ts";
 
-export const pugEngine: Engine = async (
+export const pugEngine: Engine = (
   template: string,
   data: object = {},
   config: ViewConfig = {},
