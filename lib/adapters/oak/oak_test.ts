@@ -1,11 +1,12 @@
 // app.ts
 import { Application, green, assertEquals, assert } from "../../../deps.ts";
+
 import {
   viewEngine,
   oakAdapter,
   dejsEngine
 } from "../../../mod.ts";
-
+//import declaration from the oak.adapter.ts file
 const removeRegex = /\r?\n|\r|\s/g;
 
 Deno.test({
