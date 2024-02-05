@@ -82,8 +82,8 @@ Suppose you have a folder like this:
 ```
 ```ts
 // app.ts
-import { Application } from "https://deno.land/x/oak@v10.5.1/mod.ts";
-import { viewEngine, ejsEngine, oakAdapter } from "https://deno.land/x/view_engine@v10.5.1c/mod.ts"
+import { Application } from "https://deno.land/x/oak@v13.0.0/mod.ts";
+import { viewEngine, etaEngine, oakAdapter } from "https://deno.land/x/view_engine@v11.0.0/mod.ts"
 
 const app = new Application();
 

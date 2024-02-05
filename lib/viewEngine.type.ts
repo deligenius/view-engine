@@ -1,12 +1,19 @@
+import {  MiddlewareOrMiddlewareObject } from "../deps.ts";
+
 export interface ViewConfig {
   viewRoot?: string;
   viewEngine?: Engine | undefined;
 }
 
-export type Adapter = (
+export type AdapterMiddleware<T, TContext> = (
+  context: TContext,
+  next: () => Promise<unknown>,
+) => Promise<T>;
+
+export type Adapter<T = MiddlewareOrMiddlewareObject> = (
   renderEngine: Engine,
   config: ViewConfig,
-) => void;
+) => T;
 
 export type Engine = (
   template: string,

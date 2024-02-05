@@ -1,9 +1,9 @@
 import type { Adapter, Engine, ViewConfig } from "./viewEngine.type.ts";
 
-export function viewEngine(
-  adapter: Adapter,
+export function viewEngine<TAdapterMiddleware>(
+  adapter: Adapter<TAdapterMiddleware>,
   engine: Engine,
   config: ViewConfig = <ViewConfig>{}
-): any {
+): TAdapterMiddleware {
   return adapter(engine, config);
 }

@@ -1,13 +1,13 @@
-import handlebars from "https://jspm.dev/handlebars@4.7.6";
+import handlebars from "npm:handlebars";
 import type { Engine,ViewConfig } from "../../viewEngine.type.ts";
 
-export const hbs = <any> handlebars;
+export const hbs = handlebars;
 
 export const handlebarsEngine: Engine = (
   template: string,
   data: object = {},
-  config: ViewConfig = {},
-  filename: string = "",
+  _config: ViewConfig = {},
+  _filename = "",
 
 ) => {
   return new Promise<string>((resolve, reject) => {

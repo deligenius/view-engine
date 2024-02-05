@@ -1,20 +1,19 @@
 import { eta } from "../../../deps.ts";
 import type { Engine, ViewConfig } from "../../viewEngine.type.ts";
 
-export const etaEngine: Engine = async (
+export const etaEngine: Engine = (
   template: string,
   data: object = {},
   config: ViewConfig = {},
-  filename: string = ""
+  _filename = ""
 ): Promise<string> => {
 
   if (config.viewRoot) {
     eta.configure({ views: config.viewRoot });
   }
-
-  return new Promise<string>(async (resolve, reject) => {
+  return new Promise<string>((resolve, reject) => {
     try{
-      const result = await eta.render( template, data) as string
+      const result = eta.render(template, data) as string
       resolve(result)
     }catch(e){
       reject(e)

@@ -1,13 +1,13 @@
 import type {
   Context,
+  MiddlewareOrMiddlewareObject,
   RouteParams,
   State,
-} from "https://deno.land/x/oak@v10.6.0/mod.ts";
+} from "https://deno.land/x/oak@v13.0.0/mod.ts";
 
-import type { ViewConfig,Adapter,Engine } from "../../viewEngine.type.ts";
-import { getTemplate } from "./oak.utils.ts";
+import type { ViewConfig,Engine } from "../../viewEngine.type.ts";
 
-declare module "https://deno.land/x/oak@v10.6.0/mod.ts" {
+declare module "https://deno.land/x/oak@v13.0.0/mod.ts" {
   // App level Context
   interface Context {
     render: (fileName: string, data?: object) => void;
@@ -28,13 +28,12 @@ declare module "https://deno.land/x/oak@v10.6.0/mod.ts" {
     viewConfig: ViewConfig;
   }
 }
-
 //! Add `render` function to Context
-export const oakAdapter: Adapter = (
+export const oakAdapter = <T extends MiddlewareOrMiddlewareObject>(
   renderEngine: Engine,
   config: ViewConfig = <ViewConfig>{}
 ) => {
-  return async function (ctx: Context, next: Function) {
+  return async function (ctx: Context, next: () => Promise<unknown>) {
     // load default view setting
     if (!ctx.app.viewConfig) {
       ctx.app.viewConfig = {
@@ -43,15 +42,13 @@ export const oakAdapter: Adapter = (
       };
     }
 
-    ctx.render = async (fileName: string, data?: object) =>{
+    ctx.render = (fileName: string, data?: object) =>{
       try {
-        const viewConfig = ctx.app.viewConfig;
-
         ctx.response.headers.set("Content-Type", "text/html; charset=utf-8");
         
-        ctx.response.body = async () => {
+        ctx.response.body = () => {
           return renderEngine(
-            await getTemplate(viewConfig.viewRoot ??"./", fileName),
+            fileName,
             data ?? {},
             ctx.app.viewConfig,
             fileName
@@ -65,5 +62,5 @@ export const oakAdapter: Adapter = (
     };
 
     await next();
-  };
+  } as T;
 };
