@@ -42,7 +42,6 @@ viewEngine(
 
 #### 🎛Adapter
 
-
 ```ts
 import { oakAdapter } from "https://deno.land/x/view_engine@v10.6.0/mod.ts"
 
@@ -50,8 +49,10 @@ import { oakAdapter } from "https://deno.land/x/view_engine@v10.6.0/mod.ts"
 
 #### 🚀Engine
 
+The packaged engines include: `denjuckEngine`, `handlebarsEngine`, `dejsEngine`, and `etaEngine`. 
+
 ```ts
-import { etaEngine, ejsEngine, denjuckEngine, handlebarsEngine } from "https://deno.land/x/view_engine@v10.6.0/mod.ts"
+import { etaEngine } from "https://deno.land/x/view_engine@v10.6.0/mod.ts"
 ```
 
 #### ⚙ViewConfig
@@ -68,10 +69,11 @@ const viewConfig: ViewConfig = {
 
 #### Use [Oak](https://github.com/oakserver/oak) to render `eta` template at `./views/eta/index.eta`
 
-Suppose you have a folder like this: 
+Create the directory `src/views/eta/` and add an `index.eta file`. Your project directory should look something like this:
+
 ```
-/src/views/eta/index.eta
-/src/app.ts
+src/views/eta/index.eta
+src/app.ts
 ```
 
 ```html
