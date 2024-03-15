@@ -51,7 +51,7 @@ import { oakAdapter } from "https://deno.land/x/view_engine@v10.6.0/mod.ts"
 #### 🚀Engine
 
 ```ts
-import { ejsEngine, denjuckEngine, handlebarsEngine } from "https://deno.land/x/view_engine@v10.6.0/mod.ts"
+import { etaEngine, ejsEngine, denjuckEngine, handlebarsEngine } from "https://deno.land/x/view_engine@v10.6.0/mod.ts"
 ```
 
 #### ⚙ViewConfig
@@ -70,12 +70,12 @@ const viewConfig: ViewConfig = {
 
 Suppose you have a folder like this: 
 ```
-/views/index.ejs
-/app.ts
+/src/views/eta/index.eta
+/src/app.ts
 ```
 
 ```html
-<!--index.html-->
+<!--index.eta-->
 <body>
   Hobbies of <%=it.name%> 
 </body>
@@ -83,7 +83,7 @@ Suppose you have a folder like this:
 ```ts
 // app.ts
 import { Application } from "https://deno.land/x/oak@v10.5.1/mod.ts";
-import { viewEngine, ejsEngine, oakAdapter } from "https://deno.land/x/view_engine@v10.5.1c/mod.ts"
+import { viewEngine, etaEngine, oakAdapter } from "https://deno.land/x/view_engine@v10.5.1c/mod.ts"
 
 const app = new Application();
 
